@@ -449,7 +449,8 @@ def scanDir(host,add):
     start_time=time.time()
     tool=Tool()
     dirlists=ThreadList=[]
-    #dirlists=tool.content2List("D:\Github\scan\dict\directory.txt")
+    #Windows平台dirlists=tool.content2List("D:\Github\scan\dict\directory.txt")
+    #Linux平台 dirlists=tool.content2List("../scan/dict/directory.txt")
     dirlists=tool.content2List(add)
     # print(str(dirlists))
     Queue = tool.GetQueue(dirlists)  
@@ -617,7 +618,11 @@ def menu():
             if options.add:
                 add=options.add
             else:
-                add=str(os.getcwd())+"\\dict\\directory.txt"
+                #Windows和Linux平台文件目录稍有差别
+                if "Windows" in systeminfo:
+                    add=str(os.getcwd())+"\\dict\\directory.txt"
+                elif "Linux" in systeminfo:
+                    add=str(os.getcwd())+"/dict/directory.txt"
             scanDir(host,add)
             tool.printIfExist(address)
         else:        
@@ -681,5 +686,6 @@ if __name__=='__main__':
     # url = "https://butian.net/Reward/pub"
     # page = 10
     # butianInfo.get_src_name(url,page)
+    #subdomains.getSubdomainName(300,1,"ncu.edu.cn","http")
     menu()
 

@@ -1,4 +1,4 @@
-import socket,os,threading,queue,time,re
+import socket,os,threading,queue,time,re,platform
 from module import printc
 try:
     import requests
@@ -8,7 +8,8 @@ except:
 #线程锁        
 lock = threading.Lock()
 count  = 0  #计数
-
+#获取当前操作系统的信息
+systeminfo = platform.platform()
 def test():
     printc.printf("124","red")
 
@@ -168,14 +169,25 @@ class getSubdomainNames(threading.Thread):
             #lock.release()
 #根据不同的类型选择不同的字典 1 subnames_school 2 subnames_gov 3 subnames_company 0 default subnames ,当然也支持用户自定义字典
 def dicJudgeByInput(Input):
-    if Input==0:
-        return os.getcwd().replace("module","dict\subnames.txt")
-    elif Input==1:
-        return os.getcwd()+"\dict\subnames_school.txt"
-    elif Input==2:
-        return os.getcwd().replace("module","dict\subnames_gov.txt")
-    elif Input==3:
-        return os.getcwd().replace("module","dict\subnames_company.txt")
+    if "Windows" in systeminfo:
+        if Input==0:
+            return os.getcwd().replace("module","dict\subnames.txt")
+        elif Input==1:
+            return os.getcwd()+"\dict\subnames_school.txt"
+        elif Input==2:
+            return os.getcwd().replace("module","dict\subnames_gov.txt")
+        elif Input==3:
+            return os.getcwd().replace("module","dict\subnames_company.txt")
+    elif "Linux" in systeminfo:
+        print(os.getcwd())
+        if Input==0:
+            return os.getcwd().replace("module","dict/subnames.txt")
+        elif Input==1:
+            return os.getcwd()+"/dict/subnames_school.txt"
+        elif Input==2:
+            return os.getcwd().replace("module","dict/subnames_gov.txt")
+        elif Input==3:
+            return os.getcwd().replace("module","dict/subnames_company.txt")       
     else:
         return Input 
 #判断网站使用的是http或者https

@@ -1,4 +1,4 @@
-import socket,os,threading,queue,time,re
+import socket,os,threading,queue,time,re,platform
 from module import printc
 from module import tool as tools
 #import printc
@@ -11,11 +11,14 @@ except:
 #线程锁        
 lock = threading.Lock()
 count  = 0  #计数
+#获取操作系统信息
+systeminfo = platform.platform()
 #读取文件每一行并将文件内容存放在列表中
 def content2List(add):
     # cwd=os.getcwd()
     dirList=[]
-    # add=cwd+"\\dict\\directory.txt"
+    # Windows 操作系统中 add=cwd+"\\dict\\directory.txt"
+    # Linux 操作系统中 add=cwd+"/dict/directory.txt
     f=open(add,"rb")
     for line in f.readlines():
         dirList.append(str(line)[2:-5])
@@ -135,16 +138,25 @@ class getSubdomainNames(threading.Thread):
             #lock.release()
 #根据不同的类型选择不同的字典 1 subnames_school 2 subnames_gov 3 subnames_company 0 default subnames ,当然也支持用户自定义字典
 def dicJudgeByInput(Input):
-    if Input==0:
-        return os.getcwd()+"\dict\subnames.txt"
-    elif Input==1:
-        return os.getcwd()+"\dict\subnames_school.txt"
-    elif Input==2:
-        return os.getcwd()+"\dict\subnames_gov.txt"
-    elif Input==3:
-        return os.getcwd()+"\dict\subnames_company.txt"
-    elif Input==5:
-        return os.getcwd().replace("module","\dict\subnames_school.txt")
+    if "Windows" in systeminfo:
+        if Input==0:
+            return os.getcwd().replace("module","dict\subnames.txt")
+        elif Input==1:
+            return os.getcwd()+"\dict\subnames_school.txt"
+        elif Input==2:
+            return os.getcwd().replace("module","dict\subnames_gov.txt")
+        elif Input==3:
+            return os.getcwd().replace("module","dict\subnames_company.txt")
+    elif "Linux" in systeminfo:
+        print(os.getcwd())
+        if Input==0:
+            return os.getcwd().replace("module","dict/subnames.txt")
+        elif Input==1:
+            return os.getcwd()+"/dict/subnames_school.txt"
+        elif Input==2:
+            return os.getcwd().replace("module","dict/subnames_gov.txt")
+        elif Input==3:
+            return os.getcwd().replace("module","dict/subnames_company.txt")       
     else:
         return Input 
 #判断网站使用的是http或者https
@@ -181,5 +193,5 @@ def getSubdomainName(nThreads,Num,domain,protocol):
     printc.printf(msg1,"yellow")
     printc.printf(msg2,"yellow")
 if __name__=='__main__':
-    getSubdomainName(300,5,"ncu.edu.cn","http")
+    getSubdomainName(300,1,"ncu.edu.cn","http")
 
