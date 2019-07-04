@@ -148,7 +148,7 @@ def dicJudgeByInput(Input):
         elif Input==3:
             return os.getcwd().replace("module","dict\subnames_company.txt")
     elif "Linux" in systeminfo:
-        print(os.getcwd())
+        #print(os.getcwd())
         if Input==0:
             return os.getcwd().replace("module","dict/subnames.txt")
         elif Input==1:
