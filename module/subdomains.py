@@ -138,25 +138,31 @@ class getSubdomainNames(threading.Thread):
             #lock.release()
 #根据不同的类型选择不同的字典 1 subnames_school 2 subnames_gov 3 subnames_company 0 default subnames ,当然也支持用户自定义字典
 def dicJudgeByInput(Input):
-    if "Windows" in systeminfo:
-        if Input==0:
-            return os.getcwd().replace("module","dict\subnames.txt")
-        elif Input==1:
+    if "Windows" in systeminfo:   
+        if Input==1:
             return os.getcwd()+"\dict\subnames_school.txt"
         elif Input==2:
-            return os.getcwd().replace("module","dict\subnames_gov.txt")
+            return os.getcwd()+"\dict\subnames_gov.txt"
+            #return os.getcwd().replace("module","\dict\subnames_gov.txt")
         elif Input==3:
-            return os.getcwd().replace("module","dict\subnames_company.txt")
+            return os.getcwd()+"\dict\subnames_company.txt"
+            #return os.getcwd().replace("module","\dict\subnames_company.txt")
+        else:
+            #return os.getcwd().replace("module","dict\subnames.txt")
+            return os.getcwd()+"\dict\subnames.txt" 
     elif "Linux" in systeminfo:
         #print(os.getcwd())
-        if Input==0:
-            return os.getcwd().replace("module","dict/subnames.txt")
-        elif Input==1:
+        if Input==1:
             return os.getcwd()+"/dict/subnames_school.txt"
         elif Input==2:
-            return os.getcwd().replace("module","dict/subnames_gov.txt")
+            #return os.getcwd().replace("module","/dict/subnames_gov.txt")
+            return os.getcwd()+"/dict/subnames_gov.txt"
         elif Input==3:
-            return os.getcwd().replace("module","dict/subnames_company.txt")       
+            #return os.getcwd().replace("module","/dict/subnames_company.txt")
+            return os.getcwd()+"/dict/subnames_company.txt"
+        else:
+            #return os.getcwd().replace("module","/dict/return os.getcwd()+"/dict/subnames_school.txt"")
+            return os.getcwd()+"/dict/subnames.txt"
     else:
         return Input 
 #判断网站使用的是http或者https
