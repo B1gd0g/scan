@@ -48,8 +48,18 @@ def content2List(add):
     # add=cwd+"\\dict\\directory.txt"
     f=open(add,"rb")
     for line in f.readlines():
-        dirList.append(str(line)[2:-5])
+        line = str(line)
+        line = line.replace("\\r","")
+        line = line.replace("\\n","")
+        line = line.replace("b\'","")
+        line = line.replace("\'","")
+        print(str(line))
     return dirList
+        #dirList.append(str(line)[2:-1])
+        # line = line.replace("\\n","")
+        # line = line.replace("'","")
+        # line = line.replace("b","")
+        #dirList.append(str(line))
 #将内容写入文件
 def write2file():
     #fileAdd,content
