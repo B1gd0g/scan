@@ -53,7 +53,8 @@ def content2List(add):
         line = line.replace("\\n","")
         line = line.replace("b\'","")
         line = line.replace("\'","")
-        print(str(line))
+        dirList.append(str(line))
+        #print(str(line))
     return dirList
         #dirList.append(str(line)[2:-1])
         # line = line.replace("\\n","")
