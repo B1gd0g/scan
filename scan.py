@@ -508,8 +508,8 @@ def menu():
        -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1 
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
        -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
-       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 10
+       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
+       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 1-10
        -help To show help information
     """
     parser = argparse.ArgumentParser()
@@ -678,8 +678,8 @@ def helpInfo():
        -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1 
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
        -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
-       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 10
+       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
+       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 1-10
        -help To show help information
         """
     printc.printf(helpInformaiton,"yellow")

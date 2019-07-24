@@ -210,14 +210,116 @@ def httpOrHttps(protocol):
         return protocol
 
 #将字符串设定为统一长度
-def setStr2SameLen(length,string):
+def setStr2SameLen(length,string,fillStr=" "):
     if length>len(string):
         length=length-len(string)
         for i in range(length):
-            string=string+' '
+            string=string+fillStr
         return string
     else:
         return string
+#将数据打印在表格里的表头效果如下
+'''
+   name   |     classname     |     roomate     |  ID
+----------+-------------------+-----------------+------
+'''
+#t1_len 输出固定长度=2*t1_len+len(title1),title标题
+def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0,title4=0):
+    #此时输出一个表格
+    if t1_len!=0 and t2_len == 0:
+        space_1= setStr2SameLen(t1_len,""," ")
+        len1   = 2*t1_len + len(title1)
+        space1 = setStr2SameLen(len1,"","-") #空白部分用"-"来填充
+        msg    = space_1  +str(title1) + space_1 +str("|")
+        below  = space1 + str("+")  # 输出-----------------+使其看着更像一个表格
+        print(msg)
+        print(below)
+    #此时输出两个表格
+    elif t2_len!=0 and t3_len == 0:
+        space_1 = setStr2SameLen(t1_len,""," ")
+        space_2 = setStr2SameLen(t2_len,""," ")
+        msg     = space_1  + str(title1) + space_1 +str("|") + space_2 + str(title2) + space_2 
+        len1    = 2*t1_len + len(title1)
+        space1  = setStr2SameLen(len1,"","-") + str("+")
+        len2    = 2*t2_len + len(title2)
+        space2  = setStr2SameLen(len2,"","-")
+        below   = space1 + space2
+        print(msg)
+        print(below)
+    #此时输出三个表格
+    elif t3_len!=0 and t4_len == 0:
+        space_1 = setStr2SameLen(t1_len,""," ")
+        space_2 = setStr2SameLen(t2_len,""," ")
+        space_3 = setStr2SameLen(t3_len,""," ")
+        space_4 = setStr2SameLen(t4_len,""," ")
+        msg     = space_1  + str(title1) + space_1 +str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3
+        len1    = 2*t1_len + len(title1)
+        space1  = setStr2SameLen(len1,"","-") + str("+")
+        len2    = 2*t2_len + len(title2)
+        space2  = setStr2SameLen(len2,"","-") + str("+")
+        len3    = 2*t3_len + len(title3)
+        space3  = setStr2SameLen(len3,"","-")
+        below   = space1 + space2 + space3
+        print(msg)
+        print(below)
+    #此时输出四个表格
+    elif t4_len!=0:
+        space_1 = setStr2SameLen(t1_len,""," ")
+        space_2 = setStr2SameLen(t2_len,""," ")
+        space_3 = setStr2SameLen(t3_len,""," ")
+        space_4 = setStr2SameLen(t4_len,""," ")
+        msg     = space_1  + str(title1) + space_1 +str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3 + str("|") + space_4 + str(title4) + space_4
+        len1    = 2*t1_len + len(title1)
+        space1  = setStr2SameLen(len1,"","-") + str("+")
+        len2    = 2*t2_len + len(title2)
+        space2  = setStr2SameLen(len2,"","-") + str("+")
+        len3    = 2*t3_len + len(title3)
+        space3  = setStr2SameLen(len3,"","-") + str("+")
+        len4    = 2*t4_len + len(title4)
+        space4  = setStr2SameLen(len4,"","-")
+        below   = space1 + space2 + space3 +space4
+        print(msg)
+        print(below)
+#将数据打印在一个表格里面
+def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,title3=0,t4_len=0,t4=0,title4=0):
+    #此时输出一个表格,并且要与上面表格标题对齐
+    if t1_len!=0 and t2_len == 0:
+        len1     = 2*t1_len + len(title1)
+        space_1  = setStr2SameLen(len1,t1," ") + "|"
+        msg      = space_1 
+        print(msg)
+    #此时输出两个表格
+    elif t2_len!=0 and t3_len == 0:
+        len1     = 2*t1_len + len(title1)
+        space_1  = setStr2SameLen(len1,t1," ") + "|"
+        len2     = 2*t2_len + len(title2)
+        space_2  = setStr2SameLen(len2,t2," ") 
+        msg      = space_1 + space_2
+        print(msg)
+    #此时输出三个表格
+    elif t3_len!=0 and t4_len == 0:
+        len1     = 2*t1_len + len(title1)
+        space_1  = setStr2SameLen(len1,t1," ") + "|"
+        len2     = 2*t2_len + len(title2)
+        space_2  = setStr2SameLen(len2,t2," ") + "|"
+        len3     = 2*t3_len + len(title3)
+        space_3  = setStr2SameLen(len3,t3," ") 
+        msg      = space_1 + space_2 + space_3
+        print(msg)
+    #此时输出四个表格
+    elif t4_len!=0 :
+        len1     = 2*t1_len + len(title1)
+        space_1  = setStr2SameLen(len1,t1," ") + "|"
+        len2     = 2*t2_len + len(title2)
+        space_2  = setStr2SameLen(len2,t2," ") + "|"
+        len3     = 2*t3_len + len(title3)
+        space_3  = setStr2SameLen(len3,t3," ") + "|"
+        len4     = 2*t4_len + len(title4)
+        space_4  = setStr2SameLen(len4,t4," ") 
+        msg      = space_1 + space_2 + space_3 + space_4
+        print(msg)
+
+
 #获取子域名
 def getSubdomainName(nThreads,Num,domain,protocol):
     global count

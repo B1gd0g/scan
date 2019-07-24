@@ -42,8 +42,8 @@
        -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http
        -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can makes the result more reliable
-       -url    Butian SRC list url                                            Example: -url https://butian.360.cn/Reward/pub -page 10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.360.cn/Reward/pub -page 10
+       -url    Butian SRC list url                                            Example: -url https://butian.360.cn/Reward/pub -page 1-10
+       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.360.cn/Reward/pub -page 1-10
        -help To show help information
 
 
@@ -84,7 +84,7 @@
     ![扫描后台可访问目录默认字典](https://raw.githubusercontent.com/spacesec/images/master/scan/10.png)
 
  10. 获取补天公益SRC名单保存为txt文件 python scan.py  -url  https://butian.360.cn/Home/Active/company -page 10 -o 补天名单.txt
-     ![补天公益SRC保存为txt文件](https://raw.githubusercontent.com/spacesec/images/master/scan/11.png)
+     ![补天公益SRC保存为txt文件](https://raw.githubusercontent.com/spacesec/images/master/scan/13.png)
  
  11. 扫描学校网站子域名  python scan.py -sdn pku.edu.cn -types 1 -t 200     //1学校 2公司 3政府类网站,如果不指定类型也可以扫描但是扫描会很慢
      ![子域名扫描](https://raw.githubusercontent.com/spacesec/images/master/scan/12.png)
