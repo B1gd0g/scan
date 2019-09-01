@@ -83,8 +83,15 @@ def write2file():
     msg1 = "[+] 文件存储在{add}".format(add=fileAdd)
     print(msg1)
 
+#根据用户输入C:\targets.txt   /use/targets.txt   http://www.baidu.com   返回不同字符串或者列表  判断用户输入的是地址还是网址
+#简单点讲就是根据用户输入的来决定输出结果是什么
+def input2result(s):
+    res = s
+    if "//" not in s:
+        res = content2List(s)
+    return res
 
-
+    
 #判断是否访问的页面是否存在
 def ifExist(res):
     symbol=["404","NOT FOUND","对不起"]
@@ -219,12 +226,18 @@ def setStr2SameLen(length,string,fillStr=" "):
     else:
         return string
 #将数据打印在表格里的表头效果如下
-'''
-   name   |     classname     |     roomate     |  ID
-----------+-------------------+-----------------+------
+'''                                      >title1<
+>---t1_len----<    >---t1_len----<
+               URL               |      Start Time      |       Profile       |  Speed  |                    ID
+---------------------------------+----------------------+---------------------+---------+------------------------------------------
+https://www.baidu.com
+
+>-------ti----------<
+
+相关参数控制效果如图所示
 '''
 #t1_len 输出固定长度=2*t1_len+len(title1),title标题
-def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0,title4=0):
+def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0,title4=0,t5_len=0,title5=0,color='white'):
     #此时输出一个表格
     if t1_len!=0 and t2_len == 0:
         space_1= setStr2SameLen(t1_len,""," ")
@@ -232,8 +245,13 @@ def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0
         space1 = setStr2SameLen(len1,"","-") #空白部分用"-"来填充
         msg    = space_1  +str(title1) + space_1 +str("|")
         below  = space1 + str("+")  # 输出-----------------+使其看着更像一个表格
-        print(msg)
-        print(below)
+        if color != "white":
+            print(msg)
+            print(below)
+        else:
+            printc.printf(msg,color)
+            printc.printf(below,color)
+
     #此时输出两个表格
     elif t2_len!=0 and t3_len == 0:
         space_1 = setStr2SameLen(t1_len,""," ")
@@ -244,14 +262,18 @@ def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0
         len2    = 2*t2_len + len(title2)
         space2  = setStr2SameLen(len2,"","-")
         below   = space1 + space2
-        print(msg)
-        print(below)
+        if color == "white":
+            print(msg)
+            print(below)
+        else:
+            printc.printf(msg,color)
+            printc.printf(below,color)
     #此时输出三个表格
     elif t3_len!=0 and t4_len == 0:
         space_1 = setStr2SameLen(t1_len,""," ")
         space_2 = setStr2SameLen(t2_len,""," ")
         space_3 = setStr2SameLen(t3_len,""," ")
-        space_4 = setStr2SameLen(t4_len,""," ")
+        # space_4 = setStr2SameLen(t4_len,""," ")
         msg     = space_1  + str(title1) + space_1 +str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3
         len1    = 2*t1_len + len(title1)
         space1  = setStr2SameLen(len1,"","-") + str("+")
@@ -260,15 +282,19 @@ def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0
         len3    = 2*t3_len + len(title3)
         space3  = setStr2SameLen(len3,"","-")
         below   = space1 + space2 + space3
-        print(msg)
-        print(below)
+        if color == "white":
+            print(msg)
+            print(below)
+        else:
+            printc.printf(msg,color)
+            printc.printf(below,color)
     #此时输出四个表格
-    elif t4_len!=0:
+    elif t4_len!=0 and t5_len == 0:
         space_1 = setStr2SameLen(t1_len,""," ")
         space_2 = setStr2SameLen(t2_len,""," ")
         space_3 = setStr2SameLen(t3_len,""," ")
         space_4 = setStr2SameLen(t4_len,""," ")
-        msg     = space_1  + str(title1) + space_1 +str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3 + str("|") + space_4 + str(title4) + space_4
+        msg     = space_1  + str(title1) + space_1 + str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3 + str("|") + space_4 + str(title4) +space_4
         len1    = 2*t1_len + len(title1)
         space1  = setStr2SameLen(len1,"","-") + str("+")
         len2    = 2*t2_len + len(title2)
@@ -278,16 +304,59 @@ def setSheetTitle(t1_len=0,title1=0,t2_len=0,title2=0,t3_len=0,title3=0,t4_len=0
         len4    = 2*t4_len + len(title4)
         space4  = setStr2SameLen(len4,"","-")
         below   = space1 + space2 + space3 +space4
-        print(msg)
-        print(below)
-#将数据打印在一个表格里面
-def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,title3=0,t4_len=0,t4=0,title4=0):
+        if color == "white":
+            print(msg)
+            print(below)
+        else:
+            printc.printf(msg,color)
+            printc.printf(below,color)
+    #此时输出五个表格
+    elif t5_len!=0:
+        space_1 = setStr2SameLen(t1_len,""," ")
+        space_2 = setStr2SameLen(t2_len,""," ")
+        space_3 = setStr2SameLen(t3_len,""," ")
+        space_4 = setStr2SameLen(t4_len,""," ")
+        space_5 = setStr2SameLen(t5_len,""," ")
+        msg     = space_1  + str(title1) + space_1 + str("|") + space_2 + str(title2) + space_2 + str("|")+ space_3 + str(title3) + space_3 + str("|") + space_4 + str(title4) +space_4 + str("|") + space_5 + str(title5) + space_5
+        len1    = 2*t1_len + len(title1)
+        space1  = setStr2SameLen(len1,"","-") + str("+")
+        len2    = 2*t2_len + len(title2)
+        space2  = setStr2SameLen(len2,"","-") + str("+")
+        len3    = 2*t3_len + len(title3)
+        space3  = setStr2SameLen(len3,"","-") + str("+")
+        len4    = 2*t4_len + len(title4)
+        space4  = setStr2SameLen(len4,"","-") + str("+")
+        len5    = 2*t5_len + len(title5)
+        space5  = setStr2SameLen(len5,"","-")
+        below   = space1 + space2 + space3 +space4 + space5
+        if color == "white":
+            print(msg)
+            print(below)
+        else:
+            printc.printf(msg,color)
+            printc.printf(below,color)
+
+'''                                      >title1<
+>---t1_len----<    >---t1_len----<
+               URL               |      Start Time      |       Profile       |  Speed  |                    ID
+---------------------------------+----------------------+---------------------+---------+------------------------------------------
+https://www.baidu.com
+
+>-------ti----------<
+
+相关参数控制效果如图所示
+'''
+#将数据打印在一个表格里面,ti_len 参数控制表格的长度(ti_len*2+len(title)),titlei参数空控制标题的内容
+def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,title3=0,t4_len=0,t4=0,title4=0,t5_len=0,t5=0,title5=0,color='white'):
     #此时输出一个表格,并且要与上面表格标题对齐
     if t1_len!=0 and t2_len == 0:
         len1     = 2*t1_len + len(title1)
         space_1  = setStr2SameLen(len1,t1," ") + "|"
         msg      = space_1 
-        print(msg)
+        if color == "white":
+            print(msg)
+        else:
+            printc.printf(msg,color)
     #此时输出两个表格
     elif t2_len!=0 and t3_len == 0:
         len1     = 2*t1_len + len(title1)
@@ -295,7 +364,10 @@ def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,titl
         len2     = 2*t2_len + len(title2)
         space_2  = setStr2SameLen(len2,t2," ") 
         msg      = space_1 + space_2
-        print(msg)
+        if color == "white":
+            print(msg)
+        else:
+            printc.printf(msg,color)
     #此时输出三个表格
     elif t3_len!=0 and t4_len == 0:
         len1     = 2*t1_len + len(title1)
@@ -305,9 +377,12 @@ def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,titl
         len3     = 2*t3_len + len(title3)
         space_3  = setStr2SameLen(len3,t3," ") 
         msg      = space_1 + space_2 + space_3
-        print(msg)
+        if color == "white":
+            print(msg)
+        else:
+            printc.printf(msg,color)
     #此时输出四个表格
-    elif t4_len!=0 :
+    elif t4_len!=0 and t5_len == 0:
         len1     = 2*t1_len + len(title1)
         space_1  = setStr2SameLen(len1,t1," ") + "|"
         len2     = 2*t2_len + len(title2)
@@ -317,8 +392,27 @@ def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,titl
         len4     = 2*t4_len + len(title4)
         space_4  = setStr2SameLen(len4,t4," ") 
         msg      = space_1 + space_2 + space_3 + space_4
-        print(msg)
-
+        if color == "white":
+            print(msg)
+        else:
+            printc.printf(msg,color)
+    #此时输出五个表格
+    elif t5_len!=0:
+        len1     = 2*t1_len + len(title1)
+        space_1  = setStr2SameLen(len1,t1," ") + "|"
+        len2     = 2*t2_len + len(title2)
+        space_2  = setStr2SameLen(len2,t2," ") + "|"
+        len3     = 2*t3_len + len(title3)
+        space_3  = setStr2SameLen(len3,t3," ") + "|"
+        len4     = 2*t4_len + len(title4)
+        space_4  = setStr2SameLen(len4,t4," ") + "|"
+        len5     = 2*t5_len + len(title5)
+        space_5  = setStr2SameLen(len5,t5," ")
+        msg      = space_1 + space_2 + space_3 + space_4 + space_5
+        if color == "white":
+            print(msg)
+        else:
+            printc.printf(msg,color)
 
 #获取子域名
 def getSubdomainName(nThreads,Num,domain,protocol):

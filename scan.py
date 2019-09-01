@@ -108,7 +108,8 @@ class Tool():
                 address=add
             else:
                 address = str(os.getcwd()) + "\\" + str(add)
-        elif "Linux" in systeminfo:
+        #elif "Linux" in systeminfo:
+        else:
             if "/" in add:
                  address=add
             else:
@@ -154,32 +155,38 @@ class Tool():
         for line in f.readlines():
             dirList.append(str(line)[2:-5])
         return dirList
-    #判断向相应的结果编码是否是utf-8如果不是将其转化为utf-8
+    #判断相应的结果编码是否是utf-8如果不是将其转化为utf-8,如果遇到异常则直接返回false
     def set2utf8cont(self,res):
-        if res.encoding=="utf-8":
-            content=str(res.text)
-            return content
-        else:
-            res.encoding="utf-8"
-            return str(res.text)
+        try:
+            if res.encoding=="utf-8":
+                content=str(res.text)
+                return content
+            else:
+                res.encoding="utf-8"
+                return str(res.text)
+        except Exception as e:
+            return False
     #根据响应的结果判断是否可以访问
     def visible(self,res):
         content=self.set2utf8cont(res)
-        if content==response:
-            return False
-        else:
-            flag=True
-            global cantFlag
-            if res.status_code ==200:
-                if res.is_redirect==False:
-                    for i in cantFlag:
-                        if  i  in content:
-                            flag=False
-                    return flag
+        if content != False:
+            if content==response:
+                return False
+            else:
+                flag=True
+                global cantFlag
+                if res.status_code ==200:
+                    if res.is_redirect==False:
+                        for i in cantFlag:
+                            if  i  in content:
+                                flag=False
+                        return flag
+                    else:
+                        return False
                 else:
                     return False
-            else:
-                return False
+        else:
+            return False
     #判断用户输入是否是标准的http://127.0.0.1 或者https://www.baidu.com
     def isStandard(self,inputString):
         p1="^[htps:/]+[.\w-]+\.[a-z]+" #匹配标准的https://www.baidu.com格式
@@ -406,7 +413,7 @@ def scan_all_hosts_from_file(hosts_file_add):
         #printc.printf(s2, "skyblue")
         printc.printf(s3, "skyblue")
     except:
-        print("结束")
+        print("Exit")
 
 #扫描web可访问的后台文件目录       
 class ScanBackDirectory(threading.Thread):
@@ -423,21 +430,22 @@ class ScanBackDirectory(threading.Thread):
                 lock.acquire()
                 try:
                     if tool.visible(res) == True:
-                        s1="[+]:"+url+" 存在"
+                        s1="[+]:"+"   Exist   " +url
                         printc.printf(s1,"green")
                         # print(threading.get_ident())#线程ID
                         lock.release()
                         OpenHost.append(s1)
                     #     break
                     else:
-                        s2 = "[-]:" + url + " 不存在"
-                        printc.printf(s2, "red")
+                        s2 = "[-]:" +"   notExist   "+url 
+                        #printc.printf(s2, "cyan")
+                        print(s2)
                         # print(threading.get_ident())#线程ID
                         lock.release()
                 except:
                       pass
             except:
-                msg1="[-]:连接中断正在重试中..."
+                msg1="[-]:Trying to connect again..."
                 printc.printf(msg1,'red')
                 pass
 
@@ -451,7 +459,7 @@ def scanDir(host,add):
     dirlists=ThreadList=[]
     #Windows平台dirlists=tool.content2List("D:\Github\scan\dict\directory.txt")
     #Linux平台 dirlists=tool.content2List("../scan/dict/directory.txt")
-    dirlists=tool.content2List(add)
+    dirlists=tools.content2List(add)
     # print(str(dirlists))
     Queue = tool.GetQueue(dirlists)  
     for i in range(0, nThread):
@@ -462,13 +470,13 @@ def scanDir(host,add):
     for t in ThreadList:
         t.join()
     if OpenHost:    
-        msg1="***********可访问的url有:******************"
+        msg1="******************Below are visi1 urls:******************"
         printc.printf(msg1,'yellow')
         tool.printList(OpenHost,"green")    
-    s1 = '[*] The scanning is finished'
-    s2 = '[*] Time cost :' + str((time.time() - start_time)) + ' s'
-    printc.printf(s1, "skyblue")
-    printc.printf(s2, "skyblue")
+    # s1 = '[*] The scanning is finished'
+    # s2 = '[*] Time cost :' + str((time.time() - start_time)) + ' s'
+    # printc.printf(s1, "skyblue")
+    # printc.printf(s2, "skyblue")
     # except:
     #     pass
 
@@ -495,23 +503,6 @@ def menu():
     global nThread,ports,PortList,response
     tool=Tool()
     address=""
-    usage = """ 
-       -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
-       -sh     Specific Host Detective                                        Example: -sh 127.0.0.1 
-       -ah     All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255 Default ports is 80 443
-       -t      Threads(1-200) Default is 80
-       -r      Read hosts file                                                Example: -r "hosts.txt"
-       -p      Ports                                                          Example: -p="80,8080,443" or -p 1-255 default are most usual ports
-       -o      Output file address                                            Example: -o recoder.txt or -o D:\\recoder.txt
-       -dir    Scanning visible background directory                          Example: -dir http://127.0.0.1
-       -add    Dictionary File Address                                        Example: -dir http://127.0.0.1  -add C:\dic.txt
-       -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1 
-       -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
-       -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
-       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -help To show help information
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-host', dest='host', help='-h To scan the open ports of the Host                      Default scanning ports are most usual ports   ')
     parser.add_argument('-sh', dest='sh', help='Specific Host Detective                                        Example: -sh 127.0.0.1 ')
@@ -526,7 +517,8 @@ def menu():
     parser.add_argument('-pro', dest='pro', help='Protocol                                                     Example: -pro https    Default Protocol is http ' )
     parser.add_argument('-types', dest='types', help='Using different dictionary txt file                            1 2 3  means school government company website,it can make the result more reliable' )
     parser.add_argument('-url', dest='url', help='Butian SRC list url                                          Example: -url https://butian.net/Reward/pub' )
-    parser.add_argument('-page', dest='page', help='Butian SRC Pages      Default is 10                        Example: -url https://butian.net/Reward/pub' )
+    parser.add_argument('-page', dest='page', help='Butian SRC Pages      Default is 10                        Example: -urldetect baidu.com or -urldetect urls.txt' )
+    parser.add_argument('-urldetect', dest='urldetect', help='url Detective                                    Example: -url https://butian.net/Reward/pub' )
     parser.add_argument('-help', action="store_true", help='To show help information')
     options = parser.parse_args()
     if options.host:
@@ -601,35 +593,65 @@ def menu():
                 flag = True
                 break
         if flag == True:
-            s1 = "[+] " + str(ip_addr) + "存活"
+            s1 = "[+] " + str(ip_addr) + "UP"
             printc.printf(s1, "green")
         else:
-            s1 = "[+] " + str(ip_addr) + "关闭"
+            s1 = "[+] " + str(ip_addr) + "Down"
             printc.printf(s1, "darkred")
     elif options.dir:
+        start_time=time.time()
         if options.o:
-            address=tool.address(options.o)   
+            address = tool.address(options.o)   
             tool.output(address)
         if options.t:
             tool.nThreads(options.t)
+        #根据用户输入的数据来返回不同的结果,如果用户输入的是http://www.baidu.com则直接返回结果,如果用户输入的是txt文件地址则将结果返回list
+        res_host   = tools.input2result(str(options.dir))
+        if type(res_host) == type([]):
+            for host in res_host:
+                # host=options.dir
+                if  tool.isStandard(host) ==True:
+                    res=tool.Requests(host)
+                    response=tool.set2utf8cont(res)
+                    #dirList=tool.content2List()
+                    if options.add:
+                        add=options.add
+                    else:
+                        #Windows和Linux平台文件目录稍有差别
+                        if "Windows" in systeminfo:
+                            add=str(os.getcwd())+"\\dict\\directory.txt"
+                        # elif "Linux" in systeminfo:
+                        else:
+                            add=str(os.getcwd())+"/dict/directory.txt"      
+                    scanDir(host,add)
+                    # tool.printIfExist(address)
+                else:        
+                 printc.printf("\n[-] 请在您输入的地址前面添加http或者https。http://127.0.0.1 或者 https://www.baidu.com 格式的地址",'yellow')
+        else:
+            host = res_host
+            if  tool.isStandard(host) ==True:
+                    res=tool.Requests(host)
+                    response=tool.set2utf8cont(res)
+                    #dirList=tool.content2List()
+                    if options.add:
+                        add=options.add
+                    else:
+                        #Windows和Linux平台文件目录稍有差别
+                        if "Windows" in systeminfo:
+                            add=str(os.getcwd())+"\\dict\\directory.txt"
+                        #elif "Linux" in systeminfo:
+                        else:
+                            add=str(os.getcwd())+"/dict/directory.txt"
+                    scanDir(host,add)
+                    # tool.printIfExist(address)
+            else:        
+                 printc.printf("\n[-] 请在您输入的地址前面添加http或者https。http://127.0.0.1 或者 https://www.baidu.com 格式的地址",'yellow')
+        s1 = '[*] The scanning is finished'
+        s2 = '[*] Time cost :' + str((time.time() - start_time)) + ' s'
+        printc.printf(s1, "yellow")
+        printc.printf(s2, "yellow")
+        tool.printIfExist(address)
 
-        host=options.dir
-        if  tool.isStandard(host) ==True:
-            res=tool.Requests(host)
-            response=tool.set2utf8cont(res)
-            #dirList=tool.content2List()
-            if options.add:
-                add=options.add
-            else:
-                #Windows和Linux平台文件目录稍有差别
-                if "Windows" in systeminfo:
-                    add=str(os.getcwd())+"\\dict\\directory.txt"
-                elif "Linux" in systeminfo:
-                    add=str(os.getcwd())+"/dict/directory.txt"
-            scanDir(host,add)
-            tool.printIfExist(address)
-        else:        
-         printc.printf("\n[-] 请在您输入的地址前面添加http或者https。http://127.0.0.1 或者 https://www.baidu.com 格式的地址",'yellow')
     elif options.url:
         url=options.url
         if options.o:
@@ -661,11 +683,36 @@ def menu():
         subdomains.getSubdomainName(nThread,types,domain,protocol)
         #subdomains.getSubdomainName(300,1,"ncu.edu.cn","http")
         tool.printIfExist(address)
-    if options.help:
-              helpInfo()
+    elif options.urldetect:
+        urls = options.urldetect
+        if options.o:
+            address = tool.address(options.o)   
+            tool.output(address)
+        if options.t:
+            tool.nThreads(options.t)
+        if options.pro:
+            protocol = options.pro
+        else:
+            protocol = "http"
+        subdomains.urlDetect(urls,protocol=protocol,nThreads=nThread)  
+        tool.printIfExist(address)  
+    else :
+        helpInfo()
 
 def helpInfo():
-    helpInformaiton = """Usage:
+    helpInformaiton = """
+                                   _     _      _     _      _     _      _     _   
+                                  (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)  
+                                   / ._. \\      / ._. \\      / ._. \\      / ._. \\   
+                                 __\\( Y )/__  __\\( Y )/__  __\\( Y )/__  __\\( Y )/__ 
+                                (_.-/'-'\\-._)(_.-/'-'\\-._)(_.-/'-'\\-._)(_.-/'-'\\-._)
+                                   || S ||      || C ||      || A ||      || N ||   
+                                 _.' `-' '._  _.' `-' '._  _.' `-' '._  _.' `-' '._ 
+                                (.-./`-`\\.-.)(.-./`-'\\.-.)(.-./`-'\\.-.)(.-./`-'\\.-.)
+                                 `-'     `-'  `-'     `-'  `-'     `-'  `-'     `-' 
+                                                                              Author:ba1ma0
+                                                                              E-mail:cyber-security@qq.com
+    Usage:
        -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
        -sh     Specific Host Detective                                        Example: -sh 127.0.0.1 
        -ah     All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255 Default ports is 80 443
@@ -674,15 +721,17 @@ def helpInfo():
        -p      Ports                                                          Example: -p="80,8080,443" or -p 1-255 default are most usual ports
        -o      Output file address                                            Example: -o recoder.txt or -o D:\\recoder.txt
        -dir    Scanning visible background directory                          Example: -dir http://127.0.0.1
-       -add    Dictionary File Address                                        Example: -dir http://127.0.0.1  -add C:\dic.txt
+       -add    Dictionary File Address                                        Example: -dir http://127.0.0.1  -add C:\\dic.txt
        -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1 
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
        -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
        -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -help To show help information
+       -page   Butian SRC Pages      Default is 10                            
+       -urldetect UrlDetect                                                   Example: -urldetect baidu.com or -urldetect urls.txt
+       -help   To show help information
         """
     printc.printf(helpInformaiton,"yellow")
+
     # print(helpInformaiton)
 
 if __name__=='__main__':
@@ -690,5 +739,8 @@ if __name__=='__main__':
     # page = 10
     # butianInfo.get_src_name(url,page)
     #subdomains.getSubdomainName(300,1,"ncu.edu.cn","http")
+    #subdomains.urlDetect('baidu.com')
+    #subdomains.urlDetect('http://www.baidu.com')
     menu()
+    #printc.printf()
 

@@ -6,6 +6,9 @@
    如果实在解决不了:
    QQ:1058763824
 
+## 更新说明 2019-9-1:
+   1. 因为上周需要对100个url和IP进行手工探测是否存在,这个工作太枯燥了,所以想通过程序来实现,就新增了url探测功能,既可以指定单个目标,也可以指定目标txt文件
+   2. (1)python scan.py -urldetect test.com (2)python scan.py -urldetect urls.txt   
 
 ## 更新说明:
    1. 新增-dir参数 扫描后台文件和目录,
@@ -30,7 +33,7 @@
 您只需要输入python scan.py -help就可以并且得到如下结果:  
 
       Usage:
-        -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
+       -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
        -sh     Specific Host Detective                                        Example: -sh 127.0.0.1
        -ah     All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255 Default ports is 80 443
        -t      Threads(1-200) Default is 80
@@ -41,10 +44,11 @@
        -add    Dictionary File Address                                        Example: -dir http://127.0.0.1  -add C:\dic.txt
        -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http
-       -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can makes the result more reliable
-       -url    Butian SRC list url                                            Example: -url https://butian.360.cn/Reward/pub -page 1-10
-       -page   Butian SRC Pages      Default is 10                            Example: -url https://butian.360.cn/Reward/pub -page 1-10
-       -help To show help information
+       -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable
+       -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
+       -page   Butian SRC Pages      Default is 10
+       -urldetect UrlDetect                                                   Example: -urldetect baidu.com or -urldetect urls.txt
+       -help   To show help information
 
 
 优     点:小巧,方便,强大
@@ -88,7 +92,9 @@
  
  11. 扫描学校网站子域名  python scan.py -sdn pku.edu.cn -types 1 -t 200     //1学校 2公司 3政府类网站,如果不指定类型也可以扫描但是扫描会很慢
      ![子域名扫描](https://raw.githubusercontent.com/spacesec/images/master/scan/12.png)
- 
+ 12. url探测  python scan.py  -urldetect baidu.com  或者 python scan.py  -urldetect urls.txt
+     ![Url探测](https://raw.githubusercontent.com/spacesec/images/master/scan/14.png)
+
 
 ******************************************************************************
 分割线 分割线	分割线	分割线	分割线	分割线	分割线

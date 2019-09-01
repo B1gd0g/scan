@@ -1,5 +1,7 @@
 # coding=utf-8
-
+'''
+Windows和Linux
+'''
 import ctypes, sys ,platform
 STD_INPUT_HANDLE = -10
 STD_OUTPUT_HANDLE = -11
@@ -196,7 +198,8 @@ def printf(string,color):
             printYellow(string)
         elif color=="white":
             printWhite(string)
-    elif "Linux" in systeminfo:
+    else:      
+    # elif "Linux" in systeminfo:
         #print("Current OS is Linux")
         STYLE = {
                 'fore':
