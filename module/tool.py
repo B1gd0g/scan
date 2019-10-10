@@ -14,8 +14,8 @@ def test():
     printc.printf("124","red")
 
 #得到一个队列
-def GetQueue(list):
-    PortQueue = queue.Queue(65535)
+def GetQueue(List):
+    PortQueue = queue.Queue(len(List))
     for p in list:
         PortQueue.put(p)
     return PortQueue

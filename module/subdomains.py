@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import socket,os,threading,queue,time,re,platform
 from module import printc
 from module import tool as tools
@@ -27,7 +28,7 @@ def content2List(add):
 
 #判断是否访问的页面是否存在
 def ifExist(res):
-    symbol=["404","NOT FOUND","对不起","页面不存在","502BadGateway"]
+    symbol=["404","NOT FOUND","对不起","页面不存在","502BadGateway","403 Forbidden"]
     p="<title>([\W\w]*?)</title>"
     for i in symbol:
         if i in re.findall(p,res)[0]:
@@ -104,7 +105,7 @@ class getSubdomainNames(threading.Thread):
         domain1=self.domain1
         while not self.subdomains.empty():
             subdomain=self.subdomains.get()
-            # domain=httpOrHttps(domain)+"://" +subdomain+"."+domain
+            #domain=httpOrHttps(domain)+"://" +subdomain+"."+domain
             domain=httpOrHttps(self.protocol)+str("://") +str(subdomain)+"."+str(domain1)
             # print(domain)
             #lock.acquire()
@@ -184,7 +185,7 @@ def getSubdomainName(nThreads,Num,domain,protocol):
     global count
     start_time=time.time()
     add=dicJudgeByInput(Num)
-    subdomains=GetQueue(content2List(add))
+    subdomains=GetQueue(tools.content2List(add))
     ThreadList=[]
     for i in range(0, nThreads):
         t = getSubdomainNames(subdomains,domain,protocol)
@@ -238,8 +239,8 @@ class URLDetect(threading.Thread):
             #domain=httpOrHttps(self.protocol)+str("://") +str(subdomain) 
             try: 
                 res          = requests.get(domain,timeout=4,allow_redirects=True)
-                status_code  = res.status_code
                 lock.acquire()
+                status_code  = res.status_code
                 result=change2standard(res)
                 #这里是用用来匹配网站title,后面可以根据自己的需要添加新的规则
                 if (re.findall(self.p,result)):
@@ -252,7 +253,8 @@ class URLDetect(threading.Thread):
                 title=title.replace("\r","")
                 title=title.replace("\t","")
                 title=title.replace(" ",'')
-                if isVisible(title)==True:
+                #if isVisible(title)==True:
+                if status_code == 200:
                         count = count  + 1
                         msg   = "[+] " + tools.setStr2SameLen(30,domain)+title
                         #url status_code title visitable
@@ -260,16 +262,20 @@ class URLDetect(threading.Thread):
                         # printc.printf(msg,'green')
                 else:
                     #msg = "[-] " + " Yes "+domain
-                    tools.print2sheet(t1_len=25,t1=str(url),title1="URL",t2_len=2,t2="   "+str(status_code),title2="Status",t3_len=1,t3="   Yes",title3="Visitable",t4_len=20,t4=title,title4="Title")
+                    tools.print2sheet(t1_len=25,t1=str(url),title1="URL",t2_len=2,t2="   "+str(status_code),title2="Status",t3_len=1,t3="   No",title3="Visitable",t4_len=20,t4=title,title4="Title")
                     # printc.printf(msg,'red')
                     pass
                 lock.release()
             except:
-                lock.acquire()
+                # lock.acquire()
                 # msg = "[-] " + " No "+domain
                 # printc.printf(msg,'red')
-                tools.print2sheet(t1_len=25,t1=str(url),title1="URL",t2_len=2,t2="   "+str(status_code),title2="Status",t3_len=1,t3="   No",title3="Visitable",t4_len=20,t4=title,title4="Title")
-                lock.release()
+                if status_code == 200:
+                    tools.print2sheet(t1_len=25,t1=str(url),title1="URL",t2_len=2,t2="   "+str(status_code),title2="Status",t3_len=1,t3="   Yes",title3="Visitable",t4_len=20,t4=title,title4="Title")
+                else:
+                    #msg = "[-] " + " Yes "+domain
+                    tools.print2sheet(t1_len=25,t1=str(url),title1="URL",t2_len=2,t2="   "+str(status_code),title2="Status",t3_len=1,t3="   No",title3="Visitable",t4_len=20,t4=title,title4="Title")
+                #lock.release()
                 pass
 #资产探测函数
 def urlDetect(urls,protocol,nThreads=40):
