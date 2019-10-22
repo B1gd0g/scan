@@ -5,7 +5,14 @@
 
    如果实在解决不了:
    QQ:1058763824
-
+## 更新说明 2019-10-23:  
+   1. 新增对-ip参数,对ip地址信息查询,支持批量查询和单个查询  
+   例如: python scan.py  -ip 127.0.0.1   or   python scan.py  -ip   ips.txt  
+   结果为:  
+              IP        | API  |          Information            
+      ------------------+------+-------------------------------  
+      27.110.219.115    |Taobao|菲律宾马尼拉马尼拉菲律宾长途电话公司              
+      51.15.54.102      |Taobao|荷兰阿姆斯特丹阿姆斯特丹XX  
 ## 更新说明 2019-9-1:
    1. 因为上周需要对100个url和IP进行手工探测是否存在,这个工作太枯燥了,所以想通过程序来实现,就新增了url探测功能,既可以指定单个目标,也可以指定目标txt文件
    2. (1)python scan.py -urldetect test.com (2)python scan.py -urldetect urls.txt   
@@ -34,7 +41,7 @@
 
       Usage:
        -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
-       -sh     Specific Host Detective                                        Example: -sh 127.0.0.1
+       -sh     Specific Host Detective                                        Example: -sh 127.0.0.1 
        -ah     All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255 Default ports is 80 443
        -t      Threads(1-200) Default is 80
        -r      Read hosts file                                                Example: -r "hosts.txt"
@@ -42,12 +49,13 @@
        -o      Output file address                                            Example: -o recoder.txt or -o D:\recoder.txt
        -dir    Scanning visible background directory                          Example: -dir http://127.0.0.1
        -add    Dictionary File Address                                        Example: -dir http://127.0.0.1  -add C:\dic.txt
-       -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1
-       -pro    Protocol                                                       Example: -pro https    Default Protocol is http
-       -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable
+       -sdn    Subdomain names                                                Example: -sdn baidu.com -types 3  -sdn pku.edu.cn -types 1 
+       -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
+       -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
        -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -page   Butian SRC Pages      Default is 10
+       -page   Butian SRC Pages                                               Default is 10                            
        -urldetect UrlDetect                                                   Example: -urldetect baidu.com or -urldetect urls.txt
+       -ip     Find ip information                                            Example: -ip 127.0.0.1 or -ip ip.txt 
        -help   To show help information
 
 

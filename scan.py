@@ -519,6 +519,7 @@ def menu():
     parser.add_argument('-url', dest='url', help='Butian SRC list url                                          Example: -url https://butian.net/Reward/pub' )
     parser.add_argument('-page', dest='page', help='Butian SRC Pages      Default is 10                        Example: -urldetect baidu.com or -urldetect urls.txt' )
     parser.add_argument('-urldetect', dest='urldetect', help='url Detective                                    Example: -url https://butian.net/Reward/pub' )
+    parser.add_argument('-ip', dest='ip', help='Find ip information                                            Example: -urldetect baidu.com or -urldetect urls.txt' )
     parser.add_argument('-help', action="store_true", help='To show help information')
     options = parser.parse_args()
     if options.host:
@@ -695,7 +696,13 @@ def menu():
         else:
             protocol = "http"
         subdomains.urlDetect(urls,protocol=protocol,nThreads=nThread)  
-        tool.printIfExist(address)  
+        tool.printIfExist(address) 
+    elif options.ip:
+        if options.o:
+            address=tool.address(options.o)   
+            tool.output(address) 
+        ip = options.ip
+        tools.findAddressByIp(ip)
     else :
         helpInfo()
 
@@ -726,8 +733,9 @@ def helpInfo():
        -pro    Protocol                                                       Example: -pro https    Default Protocol is http  
        -types  Using different dictionary txt file                            1 2 3 means school gov company website,it can make the result more reliable 
        -url    Butian SRC list url                                            Example: -url https://butian.net/Reward/pub -page 1-10
-       -page   Butian SRC Pages      Default is 10                            
+       -page   Butian SRC Pages                                               Default is 10                            
        -urldetect UrlDetect                                                   Example: -urldetect baidu.com or -urldetect urls.txt
+       -ip     Find ip information                                            Example: -ip 127.0.0.1 or -ip ip.txt 
        -help   To show help information
         """
     printc.printf(helpInformaiton,"yellow")

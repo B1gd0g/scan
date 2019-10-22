@@ -1,4 +1,4 @@
-import socket,os,threading,queue,time,re,platform
+import socket,os,threading,queue,time,re,platform,sys,json,random
 from module import printc
 try:
     import requests
@@ -14,8 +14,8 @@ def test():
     printc.printf("124","red")
 
 #得到一个队列
-def GetQueue(List):
-    PortQueue = queue.Queue(len(List))
+def GetQueue(list):
+    PortQueue = queue.Queue(65535)
     for p in list:
         PortQueue.put(p)
     return PortQueue
@@ -61,37 +61,57 @@ def content2List(add):
         # line = line.replace("'","")
         # line = line.replace("b","")
         #dirList.append(str(line))
-#将内容写入文件
-def write2file():
-    #fileAdd,content
-    content = []
-    temp = ''
-    for i in range(1,101):
-        for i1 in range(101,201):
-            for i2 in range(201,241):
-                temp = str(i)+","+str(i1)+","+str(i2)
-                content.append(temp)
-                temp = ''
-    for i in content:
-        print(i)
-    fileAdd = "C:\\Users\\Ma\\Desktop\\1.txt"
-    with open(fileAdd,"w") as f:
-        for i in content:
-            f.write(i)
-            f.write("\n")
-    f.close()
-    msg1 = "[+] 文件存储在{add}".format(add=fileAdd)
-    print(msg1)
+#将内容写入文件,并返回保存内容的文件绝对路径地址
+# def write2file(content,filename=1,type="ar"):
+#     current           ==  os.getcwd()                #获取当前文件夹的位置
+#     name              =  str(time.strftime("%Y-%m-%d_%X",time.localtime()).replace(":","")) + ".txt"  #文件输出格式2019-07-29_134142.txt
+#     #filefilename,content
+#     if  filename       == 1:                                                                            #用户如果没有输出保存地址,则使用默认地址
+#         filename   = str(current) + name                                                       #文件输出的绝对路径
+#     elif filename      !=1:
+#         if "\\" in str(filename) or "/" in str(filename) :       
+#             filefilename = filename
+#         else:
+#             fileaddress
+#     f  = open(fileaddress,type)
+#     f.write(content)
+#     f.write("\n")
+#     f.close()
 
-#根据用户输入C:\targets.txt   /use/targets.txt   http://www.baidu.com   返回不同字符串或者列表  判断用户输入的是地址还是网址
-#简单点讲就是根据用户输入的来决定输出结果是什么
-def input2result(s):
-    res = s
-    if "//" not in s:
-        res = content2List(s)
-    return res
+class Logger(object):
+    def __init__(self, fileN="Default.log"):
+        try:
+            self.terminal = sys.stdout
+            self.log = open(fileN, "w+")
+        except:
+            print("换个路径试一试")
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+    def flush(self):
+        pass
+def output(add):
+    sys.stdout = Logger(add)
 
-    
+#存放输出文件的文件名
+def address(add):
+    if "Windows" in systeminfo:
+        if ":" in add:
+            address=add
+        else:
+            address = str(os.getcwd()) + "\\" + str(add)
+    elif "Linux" in systeminfo:
+        if "/" in add:
+             address=add
+        else:
+            address = str(os.getcwd()) + "/" + str(add) 
+    return address
+#如果存在输入文件则打印,否则不打印    
+def printIfExist(address):
+    if address:
+        s="[*] The result file is at {add}".format(add=address)
+        printc.printf(s, "skyblue")
+
 #判断是否访问的页面是否存在
 def ifExist(res):
     symbol=["404","NOT FOUND","对不起"]
@@ -413,7 +433,92 @@ def print2sheet(t1_len=0,t1=0,title1=0,t2_len=0,t2=0,title2=0,t3_len=0,t3=0,titl
             print(msg)
         else:
             printc.printf(msg,color)
-
+#根据用户输入C:\targets.txt   /use/targets.txt   http://www.baidu.com   返回不同字符串或者列表  判断用户输入的是地址还是网址
+#简单点讲就是根据用户输入的来决定输出结果是什么
+def input2result(s):
+    res = s
+    if "http" in s:
+        res = s
+    elif "/"  in s:
+        res = content2List(s)
+    return res
+#根据ip地址判断该IP地址详细信息 例如:218.205.56.222返回结果:中国浙江杭州移动
+#ip参数既可以是ip地址也可以存放ip地址的txt文件
+def  findAddressByIp(ip,protocol="http"):
+    ip        = input2result(ip)
+    setSheetTitle(t1_len=8,title1="IP",t2_len=1,title2="API ",t3_len=10,title3="Information")
+    if type(ip)  == type(""): #当参数是ip地址时
+        flag       =  False #标志位,如果flag为false时一直请求
+        api        = "http://ip.taobao.com/service/getIpInfo.php?ip={ip}".format(ip=ip)
+        try:
+            #当使用taobao接口进行查询时
+            res             = json.loads(requests.get(api,timeout=4).text)
+            if res['code'] == 0 and res['data'] != "":
+                address     = str(res["data"]["country"]) + str(res["data"]["region"]) + res["data"]["city"] + res["data"]["isp"]  
+                print2sheet(t1_len=8,t1=str(ip),title1="IP",t2_len=1,t2="Taobao",title2='API',t3_len=10,t3=address,title3='Information')
+            else:
+                api         = "http://ip-api.com/json/{ip}?lang=zh-CN".format(ip=ip)
+                res         = json.loads(requests.get(api,timeout=4).text)
+                if res['status'] == "success" and res['query'] == str(ip):#查询成功的标志
+                    address     = str(res["country"]) + str(res["regionName"]) + res["isp"]  
+                    print2sheet(t1_len=8,t1=str(ip),title1="IP",t2_len=1,t2="ip-api",title2='API',t3_len=10,t3=address,title3='Information')
+                else:
+                    print2sheet(t1_len=8,t1=str(ip),title1="IP",t2_len=1,t2="None",title2='API',t3_len=10,t3="两个接口都无发正常使用,请手工查询",title3='Information')
+        except Exception as e:
+                #当淘宝接口无法返回正常结果时,使用另外一个接口
+                try:
+                    api         = "http://ip-api.com/json/{ip}?lang=zh-CN".format(ip=ip)
+                    res         = json.loads(requests.get(api,timeout=4).text)
+                    if res['status'] == "success" and res['query'] == str(ip):#查询成功的标志
+                        address     = str(res["country"]) + str(res["regionName"]) + res["isp"]  
+                        print2sheet(t1_len=8,t1=str(ip),title1="IP",t2_len=1,t2="ip-api",title2='API',t3_len=10,t3=address,title3='Information')
+                except:
+                    print2sheet(t1_len=8,t1=str(ip),title1="IP",t2_len=1,t2="None",title2='API',t3_len=10,t3="两个接口都无发正常使用,请手工查询",title3='Information')
+                    pass
+#当参数是ip.txt时
+    else: 
+        for i in ip:
+            api        = "http://ip.taobao.com/service/getIpInfo.php?ip={ip}".format(ip=i)
+            try:
+                #当使用taobao接口进行查询时
+                res             = json.loads(requests.get(api,timeout=4).text)
+                if res['code'] == 0 and res['data'] != "":
+                    address     = str(res["data"]["country"]) + str(res["data"]["region"]) + res["data"]["city"] + res["data"]["isp"]  
+                    print2sheet(t1_len=8,t1=str(i),title1="IP",t2_len=1,t2="Taobao",title2='API',t3_len=10,t3=address,title3='Information')
+                else:
+                    api         = "http://ip-api.com/json/{ip}?lang=zh-CN".format(ip=ip)
+                    res         = json.loads(requests.get(api,timeout=4).text)
+                    if res['status'] == "success" and res['query'] == str(ip):#查询成功的标志
+                        address     = str(res["country"]) + str(res["regionName"]) + res["isp"]  
+                        print2sheet(t1_len=8,t1=str(i),title1="IP",t2_len=1,t2="ip-api",title2='API',t3_len=10,t3=address,title3='Information')
+                    else:
+                        print2sheet(t1_len=8,t1=str(i),title1="IP",t2_len=1,t2="None",title2='API',t3_len=10,t3="两个接口都无发正常使用,请手工查询",title3='Information')
+            except Exception as e:
+                    #当淘宝接口无法返回正常结果时,使用另外一个接口
+                    try:
+                        api         = "http://ip-api.com/json/{ip}?lang=zh-CN".format(ip=i)
+                        res         = json.loads(requests.get(api,timeout=4).text)
+                        if res['status'] == "success" and res['query'] == str(i):#查询成功的标志
+                            address     = str(res["country"]) + str(res["regionName"]) + res["isp"]  
+                            print2sheet(t1_len=8,t1=str(i),title1="IP",t2_len=1,t2="ip-api",title2='API',t3_len=10,t3=address,title3='Information')
+                    except:
+                        print2sheet(t1_len=8,t1=str(i),title1="IP",t2_len=1,t2="None",title2='API',t3_len=10,t3="两个接口都无发正常使用,请手工查询",title3='Information')
+                        pass
+    #     except Exception as e:
+#         msg  =  '''出问题了!请检查是否是以下原因
+# 1.网络是够通畅
+# 2.ip.txt文件只能是ip地址不能包含其他信息
+#         '''
+#         print(msg)
+    
+#有些输入不含有http协议或者https,这时需要将没有协议的url默认添上协议,有协议的则不做处理    
+def setDefaultPro(protocol="http",url=""):
+    res         = ''
+    if "http" not in url :
+        res     =   str(protocol) + "://" + url
+    else:
+        res     = url 
+    return res
 #获取子域名
 def getSubdomainName(nThreads,Num,domain,protocol):
     global count
