@@ -202,10 +202,11 @@ def getSubdomainName(nThreads,Num,domain,protocol):
 #简单点讲就是根据用户输入的来决定输出结果是什么
 def input2result(s):
     res = s
-    if "//" not in s:
+    if "http" in s:
+        res = s
+    elif "/"  in s:
         res = tools.content2List(s)
     return res
-
 '''
 缘故:对网站进行资产探测,这个功能产生缘故是有一次工作中遇到了一项任务,是对资产进行一个个复制,然后黏贴到浏览器中,一百多个资产我一个个进行测试,我信奉的原则是,机械重复的动作应该交给程序来做! 2019-8-31 14:49:57
 作用:(1)该函数的作用是如果输入一个url然后程序进行探测,如果有效则可返回url以及标题.
@@ -229,11 +230,12 @@ class URLDetect(threading.Thread):
             # print(url)
             # domain=httpOrHttps(domain)+"://" +subdomain+"."+domain
             if "http" not in url:
-                if "www" not in url:
+                domain  = self.protocol + "://" + url
+                #if "www" not in url:
                     # urls   = "http://www." + urls
-                    domain  = self.protocol + "://www." + url   #拼接成类似于http://www.baidu.com这样的完整域名
-                else:
-                    domain  = self.protocol + "://" + url       #拼接成类似于http://www.baidu.com这样的完整域名
+                    #domain  = self.protocol + "://www." + url   #拼接成类似于http://www.baidu.com这样的完整域名
+            #     else:
+            #         domain  = self.protocol + "://" + url       #拼接成类似于http://www.baidu.com这样的完整域名
             else:
                 domain  = url                                   #如果原目标中有指定协议则按原协议地址返回
             #domain=httpOrHttps(self.protocol)+str("://") +str(subdomain) 
@@ -288,10 +290,11 @@ def urlDetect(urls,protocol,nThreads=40):
     except:
         #msg            = "Please input standard url like http://www.test.com or https://www.test.com"
         # print(msg)
-        if "www" not in urls:
-            urls   = "{protocol}://www.".format(protocol=protocol) + urls
-        else:
-            urls   = "{protocol}://".format(protocol=protocol) + urls  
+        # if "www" not in urls:
+        #     urls   = "{protocol}://www.".format(protocol=protocol) + urls
+        # else:
+        urls   = "{protocol}://".format(protocol=protocol) + urls  #由于有时 类似  https://www.test.test.com 是不能正常访问的,所以就不手工添加www,先把上面代码注释掉,下次需要的时候再使用(2019-10-24 19:08:46)
+        print(urls)
     #根据用户输入的不同,执行不同的操作
     if type(urls)  == type([]):
         urls       = GetQueue(urls)
