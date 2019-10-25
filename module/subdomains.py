@@ -206,6 +206,9 @@ def input2result(s):
         res = s
     elif "/"  in s:
         res = tools.content2List(s)
+    elif "\\" in s:
+        res = tools.content2List(s)
+        print("当前是windows")
     return res
 '''
 缘故:对网站进行资产探测,这个功能产生缘故是有一次工作中遇到了一项任务,是对资产进行一个个复制,然后黏贴到浏览器中,一百多个资产我一个个进行测试,我信奉的原则是,机械重复的动作应该交给程序来做! 2019-8-31 14:49:57
@@ -286,15 +289,15 @@ def urlDetect(urls,protocol,nThreads=40):
     # print(tools.content2List(urls))
     #因为当与用户输入 baidu.com时input2result无法处理,所以这里捕获一下异常人工进行处理一下,直接给其加上http或者www
     try:
-        urls       = input2result(urls)
+        urls       = tools.input2result(urls)
     except:
+        # print("出错啦")
         #msg            = "Please input standard url like http://www.test.com or https://www.test.com"
         # print(msg)
         # if "www" not in urls:
         #     urls   = "{protocol}://www.".format(protocol=protocol) + urls
         # else:
         urls   = "{protocol}://".format(protocol=protocol) + urls  #由于有时 类似  https://www.test.test.com 是不能正常访问的,所以就不手工添加www,先把上面代码注释掉,下次需要的时候再使用(2019-10-24 19:08:46)
-        print(urls)
     #根据用户输入的不同,执行不同的操作
     if type(urls)  == type([]):
         urls       = GetQueue(urls)
