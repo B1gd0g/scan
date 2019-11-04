@@ -328,12 +328,12 @@ def scan_host_ports(ip):
         t.start()
     for t in ThreadList:
         t.join()
-    s1 =  '[*] The scanning is finished'
-    s2 =  '[*] A total of %d ports is open' % (openNum)
-    s3=   '[*] Time cost :' + str((time.time() - start_time)) + ' s'
-    printc.printf(s1, "skyblue")
-    printc.printf(s2, "skyblue")
-    printc.printf(s3, "skyblue")
+    # s1 =  '[*] The scanning is finished'
+    # s2 =  '[*] A total of %d ports is open' % (openNum)
+    # s3=   '[*] Time cost :' + str((time.time() - start_time)) + ' s'
+    # printc.printf(s1, "skyblue")
+    # printc.printf(s2, "skyblue")
+    # printc.printf(s3, "skyblue")
 
 #扫描特定主机
 def scan_specific_hosts(ip_addr,port):
@@ -539,12 +539,23 @@ def menu():
                     msg1+=str(i)+' '
                 msg2="[*] Scanning Ports :"+msg1
                 printc.printf(msg2,"skyblue")
-        s = tool.standardUrl(options.host)
-        ip= tools.getIPByName(s)
-        info="[+]Starting scanning:"+str(s)+"({ip})".format(ip=ip)
-        printc.printf(info,'yellow')
-        scan_host_ports(s)
-        tool.printIfExist(address)
+#进行单个ip以及批量域名扫描
+        res_host    = tools.input2result(str(options.host))
+        if type(res_host) == type([]):
+            for host in  res_host:
+                s       = tool.standardUrl(host)
+                ip      = tools.getIPByName(s)
+                info    ="[+]Starting scanning:"+str(s)+"({ip})".format(ip=ip)
+                printc.printf(info,'yellow')
+                scan_host_ports(s)
+                tool.printIfExist(address)
+        else:
+                s       = tool.standardUrl(res_host)
+                ip      = tools.getIPByName(s)
+                info    ="[+]Starting scanning:"+str(s)+"({ip})".format(ip=ip)
+                printc.printf(info,'yellow')
+                scan_host_ports(s)
+                tool.printIfExist(address)
     elif options.ah :
         if options.o:
             address=tool.address(options.o)   
@@ -703,6 +714,7 @@ def menu():
             tool.output(address) 
         ip = options.ip
         tools.findAddressByIp(ip)
+        tool.printIfExist(address)
     else :
         helpInfo()
 

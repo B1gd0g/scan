@@ -243,7 +243,7 @@ class URLDetect(threading.Thread):
                 domain  = url                                   #如果原目标中有指定协议则按原协议地址返回
             #domain=httpOrHttps(self.protocol)+str("://") +str(subdomain) 
             try: 
-                res          = requests.get(domain,timeout=4,allow_redirects=True)
+                res          = requests.get(domain,timeout=1,allow_redirects=True)
                 lock.acquire()
                 status_code  = res.status_code
                 result=change2standard(res)
