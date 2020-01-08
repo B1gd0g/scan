@@ -1,6 +1,6 @@
 # -- coding: utf-8 --
 import threading, socket,time,os,re,sys,string,platform
-from module import printc,butianInfo,queue,argparse,subdomains
+from module import printc,butianInfo,queue,argparse,subdomains,output,globalInfo,telnet
 from module import tool as tools
 try:
     import json
@@ -15,11 +15,7 @@ except:
 #获取当前操作系统的信息
 systeminfo = platform.platform()
 #扫描常用端口
-PortList=[21,22,23,25,31,42,53,67,68,69,79,80,81,85,99,102,109,135,137,138,139,143,161,389,443,445,456,
-513,554,593,635,636,646,873,902,903,912,913,993,1000,1001,1029,1011,1024,1043,1044,1080,1170,1234,1245,1433,1502,1536,
-1537,1538,1539,1540,1542,1543,1544,1547,1548,1549,1801,1935,2066,2500,2504,2601,2602,2604,2869,3306,3389,3443,4000,4444,
-4224,4444,4900,5040,5357,5443,5554,6000,6942,70004,7005,7006,7007,7080,7680,7702,7720,7739,7777,7778,7779,7780,7807,7831,7833,8080,8085,8088,8161,8888,8307,8443,8800,8889,9015,9075,9081,9086,
-9087,9088,9095,9144,9156,9443,9666,9999,12051,13223,14367,14601,14610,14611,14612,14613,14614,14615,14616,14617,14618,14619,14620,14621,21440,21441,28317,35432,48620,62078,63342,65000]
+PortList=globalInfo.most_useful_ports() #最常见的一些端口信息
 #判断主机是否存活的端口
 ports=[80,443]
 #后台不能访问的标志'404','NOT FOUND','护卫神','WAF','管理员','Forbidden','很抱歉',
@@ -505,6 +501,7 @@ def menu():
     address=""
     parser = argparse.ArgumentParser()
     parser.add_argument('-host', dest='host', help='-h To scan the open ports of the Host                      Default scanning ports are most usual ports   ')
+    parser.add_argument('-telnet', dest='telnet', help='Telnet Scanning                                        Example: -telnet 127.0.0.1 -p ="22,33,44" or -telnet target.txt')
     parser.add_argument('-sh', dest='sh', help='Specific Host Detective                                        Example: -sh 127.0.0.1 ')
     parser.add_argument('-ah', dest='ah', help='All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255')
     parser.add_argument('-t', dest='t', help='Threads(1-200) Default is 80')
@@ -698,8 +695,8 @@ def menu():
     elif options.urldetect:
         urls = options.urldetect
         if options.o:
-            address = tool.address(options.o)   
-            tool.output(address)
+            address = tools.address(options.o)   
+            tools.output(address)
         if options.t:
             tool.nThreads(options.t)
         if options.pro:
@@ -708,6 +705,26 @@ def menu():
             protocol = "http"
         subdomains.urlDetect(urls,protocol=protocol,nThreads=nThread)  
         tool.printIfExist(address) 
+    elif options.telnet :#Telnet扫描,既可以单个ip扫描,也支持从文件中读取目标站点进行扫描
+        ports       = '' #端口默认为空
+        if options.o:
+            address = tool.address(options.o)   
+            tool.output(address)
+        if options.p:
+            ports   = options.p
+        #根据用户输入的数据来返回不同的结果,如果用户输入的是txt文件地址则将结果返回list,反之则原封不动返回输入结果
+        host   = tools.input2result(str(options.telnet))
+        if type(host) == type([]):
+            for ip in host:
+                msg    = "************Start telnet {target}************".format(target=ip)
+                print(msg)
+                telnet.telnet(ip,ports)
+        else:
+                msg    = "************Start telnet {target}************".format(target=host)
+                print(msg)
+                telnet.telnet(host,ports)
+
+        tool.printIfExist(address)
     elif options.ip:
         if options.o:
             address=tool.address(options.o)   
@@ -715,6 +732,7 @@ def menu():
         ip = options.ip
         tools.findAddressByIp(ip)
         tool.printIfExist(address)
+
     else :
         helpInfo()
 
@@ -735,6 +753,7 @@ def helpInfo():
        -host   To scan the open ports of the Host                             Default scanning ports are most usual ports
        -sh     Specific Host Detective                                        Example: -sh 127.0.0.1 
        -ah     All alive Hosts .Find all alive hosts                          Example: -ah 192.168.1.1-255 Default ports is 80 443
+       -telnet Telnet Scanning                                                Example: -telnet 127.0.0.1 -p ="22,33,44" or -telnet target.txt
        -t      Threads(1-200) Default is 80
        -r      Read hosts file                                                Example: -r "hosts.txt"
        -p      Ports                                                          Example: -p="80,8080,443" or -p 1-255 default are most usual ports

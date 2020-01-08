@@ -1,0 +1,324 @@
+                         URL                         |  Status  | Visitable |                    Title                    
+-----------------------------------------------------+----------+-----------+---------------------------------------------
+http://dmzaopdev.zj.chinamobile.com:20302/business/com.asiainfo.openplatform.dev.pdev.web.BasicDevelopAction|   0      |   No      |0                                            http://dmzaopdev.zj.chinamobile.com:20300/business/com.asiainfo.openplatform.dev.pdev.web.BasicDevelopAction|   0      |   No      |0                                            http://dmzaopdev.zj.chinamobile.com:20301/business/com.asiainfo.openplatform.dev.pdev.web.BasicDevelopAction|   0      |   No      |0                                            
+http://ccsct.chnl.zj.chinamobile.com/                |   0      |   No      |0                                            http://newretailbs.zj.chinamobile.com                |   0      |   No      |0                                            
+
+http://newretailbs.zj.chinamobile.com/login          |   0      |   No      |0                                            
+
+http://ems.zj.chinamobile.com/acwsui/pages           |   0      |   No      |0                                            
+
+http://gcxc.zj.chinamobile.com/                      |   0      |   No      |0                                            https://opensource.adcloud.zj.chinamobile.com/users/sign_in|   0      |   No      |0                                            http://tuan.zj.chinamobile.com                       |   0      |   No      |0                                            
+
+http://emap.zj.chinamobile.com                       |   0      |   No      |0                                            
+
+http://zjsa.zj.chinamobile.com/sa/                   |   0      |   No      |0                                            
+https://zjsa.zj.chinamobile.com/sa/                  |   0      |   No      |0                                            
+http://qdenp.chnl.zj.chinamobile.com                 |   503    |   No      |503ServiceUnavailable                        
+http://web.leaflet.zj.chinamobile.com/wcd/busi/10063/edit|   503    |   No      |                                             http://218.205.68.84                                 |   0      |   No      |0                                            
+http://insight.zj.chinamobile.com/qcweb/weiyuqing    |   404    |   No      |                                             
+http://dmzaopdev.zj.chinamobile.com:20300/           |   503    |   No      |503ServiceUnavailable                        
+http://cc.zj.chinamobile.com/manager/                |   200    |   Yes     |虚拟桌面平台-系统管理                                  
+
+cc.zj.chinamobile.com                                |   200    |   Yes     |虚拟桌面工作台|智慧运维                                 
+http://aiops.yw.zj.chinamobile.com/manager/          |   200    |   Yes     |虚拟桌面平台-系统管理                                  
+http://aikanvod.miguvideo.com                        |   404    |   No      |                                             
+http://busi.mrjx.zj.chinamobile.com/mrjx-busi/login  |   200    |   Yes     |商家登录                                         
+http://newretailbs.zj.chinamobile.com/env/           |   404    |   No      |                                             
+http://keywork.zj.chinamobile.com/maintask           |   503    |   No      |                                             
+http://igotone.zj.chinamobile.com                    |   200    |   Yes     |                                             
+http://pm-linshi.zj.chinamobile.com                  |   200    |   Yes     |天眼                                           
+http://4assoct.chnl.zj.chinamobile.com/uac/web3/jsp/login|   403    |   No      |403-缺少权限                                     
+http://app.m.zj.chinamobile.com/zjweb/               |   200    |   Yes     |浙江移动手机营业厅，查话费、查流量、办业务，方便触手可及，赶紧下载我们吧！        
+http://chnlmgr.yw.zj.chinamobile.com/                |   200    |   Yes     |渠道集中化管理平台                                    
+http://ems.zj.chinamobile.com/hxpm/module/mainpage/service/MainIndex|   0      |   No      |0                                            
+http://20.26.28.161:8091/trace                       |   0      |   No      |0                                            
+http://demo.adcloud.zj.chinamobile.com/dist/         |   503    |   No      |                                             
+http://devops.yw.zj.chinamobile.com/dist/            |   200    |   Yes     |ADCloud敏捷交付云平台                               http://zjsa.zj.chinamobile.com/sa/sachannel/images/css|   0      |   No      |0                                            
+http://usite.zj.chinamobile.com                      |   200    |   Yes     |神灯·商业大数据平台                                   http://newretailbs.zj.chinamobile.com:80/            |   0      |   No      |0                                            
+http://20.26.28.161:8090/trace                       |   0      |   No      |0                                            
+http://bdview.zj.chinamobile.com/applook/static/app/pages|   502    |   No      |502BadGateway                                http://newretailbs.zj.chinamobile.com/lib/jquery/f243f3446bb1226eacba3cdb8b904ef729d6ec9d/|   0      |   No      |0                                            
+http://esopmeg.yw.zj.chinamobile.com:80/             |   0      |   No      |0                                            http://newretailbs.zj.chinamobile.com/lib/bootstrap/3.3.6/js/|   200    |   Yes     |ADCloud敏捷交付云平台                               
+http://cms.chnl.zj.chinamobile.com                   |   200    |   Yes     |内容管理平台                                       
+
+
+
+
+http://znxz.zj.chinamobile.com/zgs-res-we            |   404    |   No      |                                             
+http://bomc.sbtpw.zj.chinamobile.com/rankSystem/html/list|   404    |   No      |页面访问错误                                       
+http://4assoct.chnl.zj.chinamobile.com/uac/web3/jsp/local/zhejiang|   403    |   No      |403-缺少权限                                     
+http://rctour.zj.chinamobile.com                     |   200    |   Yes     |湖州市旅游大数据中心平台                                 
+http://cc.zj.chinamobile.com/schedule/               |   200    |   Yes     |日程安排                                         
+http://igotone.zj.chinamobile.com:83/                |   200    |   Yes     |浙江移动手机客户端外网安装页                               http://10.70.181.228                                 |   0      |   No      |0                                            
+http://4assocm.chnl.zj.chinamobile.com/uac/web3/jsp/local/zhejiang|   403    |   No      |403-缺少权限                                     
+
+http://cc.zj.chinamobile.com/schedule/reply          |   403    |   No      |Error403--Forbidden                          
+http://zqenp.zj.chinamobile.com/                     |   200    |   Yes     |Computeerror                                 
+http://4asso.chnl.zj.chinamobile.com/uac/web3/jsp/local/zhejiang|   403    |   No      |403-缺少权限                                     
+http://4assocm.chnl.zj.chinamobile.com/uac/web3/jsp/login|   403    |   No      |403-缺少权限                                     
+http://keywork.zj.chinamobile.com/maintask/common/   |   503    |   No      |                                             http://gk.yw.zj.chinamobile.com/uac/web3/jsp/frame   |   0      |   No      |0                                            
+http://exam.zj.chinamobile.com/auth                  |   403    |   No      |403Forbidden                                 
+http://operate.zj.chinamobile.com//anonymous_unknown_file|   200    |   Yes     |日程安排                                         
+https://opensource.adcloud.zj.chinamobile.com/api/v4/code|   0      |   No      |0                                            http://hjl.chnl.zj.chinamobile.com                   |   503    |   No      |                                             term-intf.chnl.zj.chinamobile.com                    |   403    |   No      |403-缺少权限                                     
+http://4asso.term.zj.chinamobile.com/uac/web3/jsp/local/zhejiang|   0      |   No      |0                                            
+http://term.chnl.zj.chinamobile.com                  |   503    |   No      |                                             http://term.zj.chinamobile.com                       |   0      |   No      |0                                            
+
+
+http://keywork.zj.chinamobile.com/maintask/style/js/base/|   503    |   No      |                                             
+
+
+http://lawagency.zj.chinamobile.com:80/              |   404    |   No      |                                             
+http://lawagency.zj.chinamobile.com/lawFirmManager-web/|   200    |   Yes     |internalaudit-web--&gt;登录                    
+http://g-combat.zj.chinamobile.com/pages             |   502    |   No      |502BadGateway                                
+http://usite.zj.chinamobile.com:80/                  |   200    |   Yes     |神灯·商业大数据平台                                   
+http://znxz.chnl.zj.chinamobile.com:80/              |   404    |   No      |                                             
+http://m360.zj.chinamobile.com:80/host-manager/html/ |   503    |   No      |503ServiceUnavailable                        
+http://sms.konsone.zj.chinamobile.com/admin/login    |   503    |   No      |503ServiceUnavailable                        
+http://20.26.17.230:9001/views/upass                 |   200    |   Yes     |内容管理平台                                       
+http://cc.zj.chinamobile.com:9078/crm/               |   200    |   Yes     |鐢佃瘽瀹㈡湇                                       
+http://cc.zj.chinamobile.com                         |   200    |   Yes     |虚拟桌面工作台|智慧运维                                 
+http://cc.zj.chinamobile.com:9088/                   |   500    |   No      |                                             
+http://znxz.chnl.zj.chinamobile.com                  |   404    |   No      |                                             
+http://m-crm.zj.chinamobile.com:9000/exam/           |   404    |   No      |页面找不到                                        
+http://zqenp.zj.chinamobile.com                      |   200    |   Yes     |Computeerror                                 
+http://wap.zj.10086.cn/szhy/                         |   200    |   Yes     |浙江移动掌上营业厅-首页                                 
+http://zjsa.zj.chinamobile.com/sa                    |   404    |   No      |                                             
+http://keywork.zj.chinamobile.com/keywork/apphtml    |   200    |   Yes     |部门重点工作                                       
+http://znxz.zj.chinamobile.com/zgs-res-web/          |   404    |   No      |ApacheTomcatVersionX-Errorreport             
+http://sms.konsone.zj.chinamobile.com                |   503    |   No      |503ServiceUnavailable                        
+http://iot.zj.chinamobile.com/                       |   200    |   Yes     |中国移动浙江公司-物联网门户                               
+http://zxfz.zj.chinamobile.com/ecloud                |   200    |   Yes     |错误页面                                         
+http://newsale.chnl.zj.chinamobile.com:8080/newsale-we|   404    |   No      |                                             
+http://ccs.chnl.zj.chinamobile.com                   |   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://20.26.25.32:8101/zjboss/proxy/ESB_CS_QRY_MULTI_MULTIQRY_001|   500    |   No      |                                             
+218.205.68.247                                       |   403    |   No      |403Forbidden                                 
+http://aladdin.zj.chinamobile.com/newauction         |   404    |   No      |经济地图                                         
+http://m.intrabc.zj.chinamobile.com:8080/page/errorPage|   200    |   Yes     |错误页面                                         
+http://m.intrabc.zj.chinamobile.com:8080/page/iotZoneMobile|   200    |   Yes     |错误页面                                         https://218.205.68.75/dwr                            |   200    |   Yes     |部门重点工作                                       
+https://m360.zj.chinamobile.com/                     |   503    |   No      |503ServiceUnavailable                        
+
+http://aladdin.zj.chinamobile.com/wcdn/decorator/errorPage|   200    |   Yes     |页面出错了                                        
+http://m.intrabc.zj.chinamobile.com:8080/page/       |   200    |   Yes     |错误页面                                         
+http://aladdin.zj.chinamobile.com/newauction/user/modifyUserInfo|   404    |   No      |经济地图                                         
+http://4assoct.chnl.zj.chinamobile.com/uac/web3/jsp/login/identifyingcode3|   200    |   Yes     |404-页面不存在                                    
+http://usite.zj.chinamobile.com/usite/user           |   404    |   No      |404                                          
+http://m.intrabc.zj.chinamobile.com:8080/page/ZXJyb3JQYWdl/phone/|   200    |   Yes     |错误页面                                         
+http://aladdin.zj.chinamobile.com/newauction/user/modifyPassword|   404    |   No      |经济地图                                         
+http://pm.zj.chinamobile.com                         |   200    |   Yes     |                                             
+http://dzjh.chnl.zj.chinamobile.com                  |   200    |   Yes     |中国移动浙江公司-电子稽核                                
+http://218.205.68.116/                               |   200    |   Yes     |                                             
+http://sqzx.zj.chinamobile.com:8080/pecp             |   404    |   No      |                                             
+http://ecloud.zj.chinamobile.com/cam/zhejiang/cm/    |   200    |   Yes     |浙江集团e云平台                                     
+http://qudao.chnl.zj.chinamobile.com/business        |   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://scm.zj.chinamobile.com/opent/assets/javascripts/jquery/|   404    |   No      |                                             
+http://exam.zj.chinamobile.com                       |   200    |   Yes     |浙江移动考试答题系统:登录本网站                             
+http://qdenp.chnl.zj.chinamobile.com/images/         |   503    |   No      |503ServiceUnavailable                        
+https://queue-proxy.zj.chinamobile.com               |   200    |   Yes     |Welcometonginx!                              
+http://4asso.zj.chinamobile.com/uac/web3/jsp/login   |   403    |   No      |403-缺少权限                                     
+http://zj4agk.yw.zj.chinamobile.com/uac/web3/jsp/login|   403    |   No      |403-缺少权限                                     
+https://zj.ac.10086.cn/login                         |   200    |   Yes     |登录_中国移动通信                                    
+http://lawagency.zj.chinamobile.com/lawFirmManager-web/main|   200    |   Yes     |internalaudit-web--&gt;登录                    
+http://pay-web.zj.chinamobile.com/static/js/         |   404    |   No      |错误                                           
+http://exam.zj.chinamobile.com/login                 |   200    |   Yes     |浙江移动考试答题系统:登录本网站                             
+hjl.chnl.zj.chinamobile.com                          |   503    |   No      |                                             
+http://newsale.chnl.zj.chinamobile.com:8080/newsale-web/resources/template/scripts/modular/|   404    |   No      |                                             
+http://wzh001.zj.chinamobile.com                     |   200    |   Yes     |                                             
+http://yjk.chnl.zj.chinamobile.com:9000/console/j_security_check|   200    |   Yes     |OracleWebLogicServerAdministrationConsole    
+http://aladdin.zj.chinamobile.com/sdsm-web/salesman/login|   200    |   Yes     |登陆                                           
+http://wzh001.zj.chinamobile.com:8101/dwr/test/service|   404    |   No      |页面请求出错                                       
+http://pm.zj.chinamobile.com/qm/service/ComMobile    |   200    |   Yes     |                                             
+http://aladdin.zj.chinamobile.com/apicloud/auth/oauth/client/token|   500    |   No      |                                             20.26.12.174                                         |   200    |   Yes     |                                             
+http://20.26.17.83:8080/examples/servlets/servlet/SessionExample|   404    |   No      |                                             
+
+https://ccs.chnl.zj.chinamobile.com/                 |   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://20.26.17.83:8080/manager/                     |   404    |   No      |                                             
+http://aladdin.zj.chinamobile.com/outcall/activity/login|   200    |   Yes     |外呼                                           
+http://aladdin.zj.chinamobile.com/sdsm-web/vcode/send|   404    |   No      |                                             
+http://20.26.12.174:8000/console/login               |   200    |   Yes     |OracleWebLogicServer管理控制台                    
+http://10.70.187.43:8001/business                    |   200    |   Yes     |                                             
+https://mcrm.zj.chinamobile.com/                     |   200    |   Yes     |                                             
+http://usite.zj.chinamobile.com/usite/cust           |   404    |   No      |404                                          
+http://newsale.chnl.zj.chinamobile.com/mmarket-cloudShelf|   200    |   Yes     |云货架                                          
+http://20.26.20.14:8080/hkbappm/hkbmobile/personalController|   404    |   No      |HTTPStatus404–NotFound                       
+http://wzh001.zj.chinamobile.com:8101/               |   404    |   No      |页面请求出错                                       
+http://cms.chnl.zj.chinamobile.com/wls-wsat/CoordinatorPortType|   200    |   Yes     |内容管理平台                                       
+http://cms.chnl.zj.chinamobile.com/views/upass/      |   200    |   Yes     |内容管理平台                                       
+http://aladdin.zj.chinamobile.com/sdsm-web/salesman/index|   200    |   Yes     |登陆                                           
+http://web3.chnl.zj.chinamobile.com/                 |   200    |   Yes     |错误页面                                         
+http://yjk.yw.zj.chinamobile.com:9000/console/login  |   200    |   Yes     |OracleWebLogicServerAdministrationConsole    
+https://brcsjjf.yw.zj.chinamobile.com                |   200    |   Yes     |云货架                                          https://brcmo.yw.zj.chinamobile.com                  |   404    |   No      |404                                          
+
+https://pay-web.zj.chinamobile.com/static/css        |   404    |   No      |错误                                           
+http://211.138.125.209/eamapp/entry/services/open/srv/user/|   200    |   Yes     |内容管理平台                                       
+http://aladdin.zj.chinamobile.com/sdsm-web/salesman/exit|   200    |   Yes     |登陆                                           
+https://mcrm.zj.chinamobile.com/down/dist            |   404    |   No      |                                             
+https://ac.zj.chinamobile.com/                       |   200    |   Yes     |错误信息页面                                       
+http://pm.zj.chinamobile.com/projectweb/pages/system/mainframe/main/|   200    |   Yes     |                                             
+http://pm.zj.chinamobile.com/pmspath/acwsui/pages    |   200    |   Yes     |                                             
+http://brcsjjf.yw.zj.chinamobile.com                 |   200    |   Yes     |鏅烘収缁忓垎v1.13                                  
+http://scm.zj.chinamobile.com:6001/ngzjscm/          |   200    |   Yes     |中国移动浙江公司供应链管理平台                              
+http://m-crm.zj.chinamobile.com/                     |   403    |   No      |403Forbidden                                 
+http://ecloud.zj.chinamobile.com/cam/zhejiang/cm/    |   200    |   Yes     |浙江集团e云平台                                     
+http://cdpsite.zj.chinamobile.com/sdsm-web/salesman/sdsmList/handleList|   404    |   No      |                                             
+http://aladdin.zj.chinamobile.com/sdsm-web/services  |   200    |   Yes     |CXF-Servicelist                              
+http://addin.zj.chinamobile.com/sdsm-web/pages/phone |   200    |   Yes     |浙江集团e云平台                                     
+http://aladdin.zj.chinamobile.com/sdsm-web/services/ConfirmFileService|   404    |   No      |                                             
+https://aladdin.zj.chinamobile.com/st-outcall/cgp/csvDownload|   404    |   No      |经济地图                                         
+http://csccstcm.chnl.zj.chinamobile.com:8001/business|   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://aladdin.zj.chinamobile.com/sdsm-web/          |   404    |   No      |                                             
+http://aladdin.zj.chinamobile.com/sdsm-web/salesman/sdsmList/handleList|   404    |   No      |                                             
+http://oadadtdmz.zj.chinamobile.com/InternalAudit3DmzEAR|   200    |   Yes     |internalaudit-web--&gt;登录                    
+http://218.205.68.109:8000/wls-wsat/CoordinatorPortType11|   404    |   No      |Error404--NotFound                           
+http://aladdin.zj.chinamobile.com/sdsm-web/client/jumpTxPhone|   200    |   Yes     |超时页面                                         
+http://iot.zj.chinamobile.com                        |   200    |   Yes     |中国移动浙江公司-物联网门户                               
+http://aladdin.zj.chinamobile.com/sdsm-web/client/getRecommendInfoAgain/MTc4NTg4MDE1ODY=/1564738596424/1|   200    |   Yes     |                                             
+tourbroker.zj.chinamobile.com                        |   200    |   Yes     |旅游大数据中间件平台                                   
+http://218.205.68.135:20300/wls-wsat/CoordinatorPortType11|   500    |   No      |错误页面                                         
+https://117.148.139.15/_async/AsyncResponseService   |   404    |   No      |经济地图                                         
+http://dmzesbhttp.zj.chinamobile.com:20500/          |   200    |   Yes     |网关平台-运营者                                     
+http://aladdin.zj.chinamobile.com/insight/emapv      |   200    |   Yes     |大数据经济地图平台版                                   
+http://218.205.68.40:80/                             |   404    |   No      |错误                                           
+https://218.205.68.63/                               |   500    |   No      |错误页面                                         
+https://mcrm.zj.chinamobile.com/down/marketing/      |   200    |   Yes     |template                                     
+http://aladdin.zj.chinamobile.com/wcdn/login         |   200    |   Yes     |登陆                                           
+http://aladdin.zj.chinamobile.com/insight/wyq        |   200    |   Yes     |抱歉，出错了                                       
+http://aladdin.zj.chinamobile.com/wcdn/myWcd/make    |   200    |   Yes     |登陆                                           
+http://ams.zj.chinamobile.com/arch/kernel/module/common|   200    |   Yes     |正在登录                                         
+http://ams.zj.chinamobile.com/arch/entry             |   200    |   Yes     |正在登录                                         
+http://m-crm.zj.chinamobile.com/api/user/getEbillId  |   200    |   Yes     |                                             
+http://4aportal.yw.zj.chinamobile.com/uac/web3/jsp/login/loginAuxiliary|   200    |   Yes     |404-页面不存在                                    
+http://ecloud.zj.chinamobile.com/cam/zhejiang/cm     |   200    |   Yes     |浙江集团e云平台                                     
+http://ecloud.zj.chinamobile.com                     |   200    |   Yes     |浙江集团e云平台                                     
+https://mcrm.zj.chinamobile.com/api/sup-rs/userInfoRestfulService/getMarketDetailsById|   500    |   No      |HTTPStatus500–InternalServerError            
+http://aladdin.zj.chinamobile.com/operation/         |   200    |   Yes     |缁熶竴杩愯惀骞冲彴                                    
+http://scm.zj.chinamobile.com/portal/                |   200    |   Yes     |登录                                           
+http://218.205.68.38/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+https://pan.zj.chinamobile.com/drive/                |   200    |   Yes     |欢迎使用中国移动通信浙江公司统一信息平台                         
+https://mcrm.zj.chinamobile.com:5443/littlebee/bees/static/js/|   403    |   No      |403Forbidden                                 
+https://mcrm.zj.chinamobile.com:5443/littlebee/bee-union/|   200    |   Yes     |loading                                      
+https://mcrm.zj.chinamobile.com:5443/actuator/loggers|   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/actuator/env    |   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/actuator/configprops|   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/actuator/routes |   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/actuator/metrics|   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/actuator/mappings|   404    |   No      |                                             
+http://218.205.68.57/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+218.205.68.38                                        |   403    |   No      |Error403--Forbidden                          
+https://mcrm.zj.chinamobile.com:5443/actuator/filters|   404    |   No      |                                             
+218.205.68.57                                        |   500    |   No      |Error500--InternalServerError                
+http://m-crm.zj.chinamobile.com:9000/                |   403    |   No      |403Forbidden                                 
+http://esope.zj.chinamobile.com/conf                 |   403    |   No      |Error403--Forbidden                          
+http://ecloud.zj.chinamobile.com:80/                 |   200    |   Yes     |浙江集团e云平台                                     
+https://mcrm.zj.chinamobile.com:5443/actuator/features|   404    |   No      |                                             
+https://mcrm.zj.chinamobile.com:5443/sup-rs/webservice|   403    |   No      |                                             
+http://interzjmcrm.zj.chinamobile.com/conf           |   200    |   Yes     |错误页面                                         
+http://4aportal.yw.zj.chinamobile.com/uac/web3/jsp/login|   403    |   No      |403-缺少权限                                     
+http://gisweb.yw.zj.chinamobile.com/html/system      |   200    |   Yes     |                                             
+http://bmsshop-ec.yw.zj.chinamobile.com:8100/shopbackWeb/shop/order/OAOOrderGra|   404    |   No      |Error404--NotFound                           
+http://smartops.zj.chinamobile.com:80/hkbappm/hkbmobile/personalController|   404    |   No      |HTTPStatus404–NotFound                       
+http://117.148.139.78                                |   500    |   No      |出错啦                                          
+http://aladdin.zj.chinamobile.com                    |   200    |   Yes     |大数据经济地图平台版                                   
+http://218.205.68.7/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+http://218.205.68.45/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+http://117.148.139.38/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+http://218.205.68.35/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+https://admin.jituancaiyun.com/power/user/view       |   404    |   No      |ApacheTomcat/8.5.9-Errorreport               
+https://mcrm.zj.chinamobile.com:5443/sub/test        |   200    |   Yes     |                                             
+http://aladdin.zj.chinamobile.com/insight/emapv/jjmap/ui/js/inside|   404    |   No      |经济地图                                         
+http://218.205.68.85/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+http://218.205.68.86/bea_wls_deployment_internal/DeploymentService|   200    |   Yes     |                                             
+http://crmesop.yw.zj.chinamobile.com/images          |   200    |   Yes     |业务综合受理系统                                     
+http://zxfz.zj.chinamobile.com/esope/                |   200    |   Yes     |错误页面                                         
+http://m.intrabc.zj.chinamobile.com                  |   200    |   Yes     |错误页面                                         
+http://brcsjjf.yw.zj.chinamobile.com/user/me         |   403    |   No      |                                             
+http://218.205.68.116/conf                           |   200    |   Yes     |                                             
+http://web3.chnl.zj.chinamobile.com                  |   200    |   Yes     |错误页面                                         
+http://brcsjjf.yw.zj.chinamobile.com/user            |   200    |   Yes     |鏅烘収缁忓垎v1.13                                  
+http://ccscm.chnl.zj.chinamobile.com/                |   0      |   No      |0                                            
+http://smartsms.zj.chinamobile.com/qydx              |   0      |   No      |0                                            
+http://newsale.chnl.zj.chinamobile.com//conf         |   404    |   No      |404                                          
+http://newsale.chnl.zj.chinamobile.com/conf          |   404    |   No      |404                                          
+https://iot.zj.chinamobile.com/page/null/pc/service  |   200    |   Yes     |                                             
+http://brcsjjf.yw.zj.chinamobile.com//kpi-data/      |   200    |   Yes     |鏅烘収缁忓垎v1.13                                  
+http://brcsjjf.yw.zj.chinamobile.com/campus/queryZhjfLineChartValue/data|   200    |   Yes     |鏅烘収缁忓垎v1.13                                  
+http://brcsjjf.yw.zj.chinamobile.com/                |   200    |   Yes     |鏅烘収缁忓垎v1.13                                  
+http://cdpsite.zj.chinamobile.com/                   |   404    |   No      |Error404--NotFound                           
+218.205.68.88                                        |   0      |   No      |0                                            
+http://smartops.zj.chinamobile.com/xzhelper/view/getMonthNum|   200    |   Yes     |                                             
+http://web3.chnl.zj.chinamobile.com/conf             |   404    |   No      |-Errorreport                                 
+http://pay-web-test.zj.chinamobile.com               |   404    |   No      |错误                                           http://oalaw.zj.chinamobile.com/InnovationPlatform2/main|   0      |   No      |0                                            
+
+http://ccs.chnl.zj.chinamobile.com/                  |   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://termscm.chnl.zj.chinamobile.com/              |   0      |   No      |0                                            http://termsct.chnl.zj.chinamobile.com/              |   0      |   No      |0                                            
+http://ccs.chnl.zj.chinamobile.com/                  |   0      |   No      |0                                            
+
+http://218.205.68.87/conf                            |   404    |   No      |-Errorreport                                 
+http://4asso.chnl.zj.chinamobile.com/uac/web3/jsp/login|   0      |   No      |0                                            
+http://scmportal.zj.chinamobile.com/partner          |   200    |   Yes     |虚拟桌面平台-系统管理                                  
+http://dtkl.zj.chinamobile.com                       |   404    |   No      |                                             
+https://iot.zj.chinamobile.com/pc/osdi/serviceInvoke |   404    |   No      |错误页面                                         
+https://dtkl.zj.chinamobile.com                      |   0      |   No      |0                                            
+http://smartsms.zj.chinamobile.com                   |   200    |   Yes     |                                             
+http://smartsms.zj.chinamobile.com/stat/stat         |   503    |   No      |                                             http://ccscm.chnl.zj.chinamobile.com:80/             |   200    |   Yes     |渠道集中化管理平台                                    
+
+http://smartsms.zj.chinamobile.com:80/               |   0      |   No      |0                                            
+http://s.zj.chinamobile.com                          |   200    |   Yes     |ApacheTomcat/8.5.33                          
+http://dtkl.zj.chinamobile.com:80/                   |   0      |   No      |0                                            
+http://sct.term.zj.chinamobile.com/                  |   0      |   No      |0                                            
+http://termscm.chnl.zj.chinamobile.com:80/           |   0      |   No      |0                                            
+http://aladdin.zj.chinamobile.com/gonce2g/me         |   0      |   No      |0                                            
+http://ecloud.zj.chinamobile.com/cs/V1/console/users/setPassword|   404    |   No      |ApacheTomcatVersionX-Errorreport             
+https://ccs.chnl.zj.chinamobile.com                  |   0      |   No      |0                                            
+ccs.chnl.zj.chinamobile.com                          |   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://183.146.210.187/js                            |   200    |   Yes     |浙江移动手机客户端外网安装页                               
+http://211.138.125.215:6001/                         |   403    |   No      |403-缺少权限                                     
+http://4asso.zj.chinamobile.com/uac                  |   0      |   No      |0                                            
+http://usite.zj.chinamobile.com/                     |   200    |   Yes     |神灯·商业大数据平台                                   
+http://aladdin.zj.chinamobile.com:9080/usite         |   0      |   No      |0                                            
+http://218.205.68.93:8081/login                      |   0      |   No      |0                                            
+http://cc.zj.chinamobile.com:9068/km/                |   404    |   No      |                                             
+http://211.138.125.209:1891/                         |   502    |   No      |502BadGateway                                
+http://211.138.125.209:1890/                         |   200    |   Yes     |神灯·商业大数据平台                                   
+http://pm.zj.chinamobile.com/hxpm/module/mainpage/service/MainIndex|   0      |   No      |0                                            
+http://audit.zj.chinamobile.com:8080/smartAudit/     |   503    |   No      |503ServiceUnavailable                        
+http://ecloud.zj.chinamobile.com/cam/zhejiang/cm/    |   200    |   Yes     |浙江集团e云平台                                     
+http://audit.zj.chinamobile.com:8080/admin/attachment/fetchPictures|   503    |   No      |503ServiceUnavailable                        
+http://audit.zj.chinamobile.com:8080/admin/user/listUserInfo|   200    |   Yes     |内容管理平台                                       
+http://s.zj.chinamobile.com/surl/create              |   500    |   No      |                                             
+http://qdenp.chnl.zj.chinamobile.com/10086           |   200    |   Yes     |鐢佃瘽瀹㈡湇                                       
+http://218.205.68.84:8088/druid                      |   404    |   No      |ApacheTomcatVersionX-Errorreport             
+http://wzhcaiji001.zj.chinamobile.com/html/lib/jquery/1.11.3/|   403    |   No      |403Forbidden                                 
+http://wzhcaiji001.zj.chinamobile.com/html/lib/jquery/2.2.3/|   404    |   No      |经济地图                                         
+http://wzhcaiji001.zj.chinamobile.com/html/lib/js/   |   200    |   Yes     |错误页面                                         
+http://wzhcaiji001.zj.chinamobile.com/               |   200    |   Yes     |错误页面                                         
+http://chnl-rcard.zj.chinamobile.com                 |   200    |   Yes     |内容管理平台                                       
+http://218.205.68.9:8080/conf                        |   404    |   No      |ApacheTomcat/7.0.64-Errorreport              
+http://aladdin.zj.chinamobile.com/st-outcall         |   200    |   Yes     |错误页面                                         
+http://wzhcaiji001.zj.chinamobile.com/html           |   200    |   Yes     |中国移动浙江公司-电子稽核                                
+http://pay-phttp.zj.chinamobile.com:10100/AdvPayHttpService|   200    |   Yes     |浙江移动考试答题系统:登录本网站                             
+https://qdenp.chnl.zj.chinamobile.com/upload/        |   503    |   No      |503ServiceUnavailable                        
+https://qdenp.chnl.zj.chinamobile.com                |   403    |   No      |403-缺少权限                                     
+https://qdenp.chnl.zj.chinamobile.com/               |   200    |   Yes     |Welcometonginx!                              
+http://newsale.chnl.zj.chinamobile.com/mmarket-mgmt  |   404    |   No      |错误                                           
+http://cdpsite.zj.chinamobile.com/sdsm-web/client/getRecommendInfoAgain/MTg4ODg4ODg4ODg=/1560781482856/0/-1|   404    |   No      |页面请求出错                                       
+https://iot.zj.chinamobile.com                       |   200    |   Yes     |中国移动浙江公司-物联网门户                               
+http://cms.chnl.zj.chinamobile.com/_async/AsyncResponseService|   200    |   Yes     |中国移动浙江公司-合作式渠道系统                             
+http://pm.zj.chinamobile.com/emspath/acwsui/pages    |   200    |   Yes     |外呼                                           
+https://iot.zj.chinamobile.com/pc/IotSendEmailVerifyCode|   200    |   Yes     |                                             
+http://pm.zj.chinamobile.com/qmpath/acwsui/pages     |   200    |   Yes     |                                             
+https://iot.zj.chinamobile.com/page/null/pc/css/uploadify/test|   200    |   Yes     |中国移动浙江公司-物联网门户                               
+https://iot.zj.chinamobile.com/page/null/pc          |   200    |   Yes     |内容管理平台                                       
+http://ams.zj.chinamobile.com/arch                   |   200    |   Yes     |错误页面                                         
+http://218.205.68.209:8000/wls-wsat/CoordinatorPortType11|   200    |   Yes     |                                             
+http://218.205.68.53:8000/wls-wsat/CoordinatorPortType11|   404    |   No      |                                             
+http://dmzesbhttp.zj.chinamobile.com:20300/wls-wsat/CoordinatorPortType11|   404    |   No      |                                             
+https://ac.zj.chinamobile.com/login                  |   200    |   Yes     |中国移动浙江公司-物联网门户                               
+http://dmzesbhttp.zj.chinamobile.com                 |   200    |   Yes     |旅游大数据中间件平台                                   
+https://mcrm.zj.chinamobile.com/mmarket-cloudShelf/retailapi/public/newRetail/cloudShelf/judgeCloudShelf|   200    |   Yes     |404-页面不存在                                    
+https://mcrm.zj.chinamobile.com:5443/actuator/heapdump|   200    |   Yes     |loading                                      
+http://grid-sop.yw.zj.chinamobile.com/               |   200    |   Yes     |错误页面                                         
+[33m[+] Time cost:1.9179582595825195 s
+[0m
+[33m[+] 121 visitable URLs have been found
+[0m
+[34m[*] The result file is at /Users/play/github/scan/output/test.txt
+[0m

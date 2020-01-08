@@ -5,6 +5,16 @@
 
    如果实在解决不了:
    QQ:1058763824
+## 更新说明 2020-01-08 23:56:15  
+   1. 新增-telnet参数,可以对单个主机进行端口telnet探测,也支持批量对目的机器进行telnet探测  
+   例如:  
+   python scan.py -telnet 127.0.0.1                                 //默认使用最常见的一些端口对ip进行telnet探测  
+   python scan.oy -telnet 127.0.0.1 -p="22,33,445" 或者 -p="1-100"   //使用指定端口对主机进行telnet探测  
+   python scan.py -telnet target.txt                                //使用最常见端口批量对机器进行探测  
+   python scan.py -telnet target.txt -p="22,22,445" 或者 -p="1-100"  //使用指定端口对主机进行telnet探测  
+
+
+
 ## 更新说明 2019-10-23:  
    1. 新增对-ip参数,对ip地址信息查询,支持批量查询和单个查询  
    例如: python scan.py  -ip 127.0.0.1   or   python scan.py  -ip   ips.txt  
@@ -35,9 +45,9 @@
 
 这是一款基于python3的小巧的扫描工具
 
-我已经将需要的模块封装好了,只需要下载即可使用
+我已经将需要的模块封装好了,只需要下载并且使用 pip install -r requirement.txt 安装相关依赖即可
 
-您只需要输入python scan.py -help就可以并且得到如下结果:  
+之后您只需要输入python scan.py -help就可以并且得到如下结果:  
 
       Usage:
        -host   To scan the open ports of the Host                             Default scanning ports are most usual ports

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import socket,os,threading,queue,time,re,platform
-from module import printc
+from module import printc,output
 from module import tool as tools
 #import printc
 #from module import printc
