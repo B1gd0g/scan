@@ -7,6 +7,7 @@ portsList  =  globalInfo.most_useful_ports() #最常见的一些端口信息
 def telnet(ip="",port = "",address=''):
 	eventlet.monkey_patch()
 	time_limit  = 0.2 #设置超时时间为1s
+	flag 		= False
 #默认情况下只扫描常见一些端口
 	if port=="":
 		for port in portsList:
@@ -14,15 +15,17 @@ def telnet(ip="",port = "",address=''):
 				try:
 					tn      =telnetlib.Telnet(ip,port)
 					msg     = "[+] {ip}:{port} open [+]".format(ip=ip,port=port)
-					print(msg) 
+					print(msg)
+					flag	= True 
 				except Exception as e:
 					msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
 					print(msg)
 					pass
 				finally:
 					pass
-			msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
-			print(msg)
+			if flag == False:
+				msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
+				print(msg)
 #当用户指定一些常见的扫描端口时 port=123,122
 	elif "," in port:
 		ports = port.split(",")
@@ -31,7 +34,8 @@ def telnet(ip="",port = "",address=''):
 				try:
 					tn      =telnetlib.Telnet(ip,port)
 					msg     = "[+] {ip}:{port} open [+]".format(ip=ip,port=port)
-					print(msg)      
+					print(msg)
+					flag	= True       
 				except Exception as e:
 					msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
 					print(msg)
@@ -39,8 +43,9 @@ def telnet(ip="",port = "",address=''):
 				finally:
 					pass
 			#程序请求超过设定时间内仍然没有相应默认认为该端口不通
-			msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
-			print(msg)
+			if flag == False:
+				msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
+				print(msg)
 #用户指定一定范围的扫描目标时port=1-1000
 	elif "-" in port:
 		ports = port.split("-")
@@ -53,6 +58,7 @@ def telnet(ip="",port = "",address=''):
 					tn      =telnetlib.Telnet(ip,port)
 					msg     = "[+] {ip}:{port} open [+]".format(ip=ip,port=port)
 					print(msg) 
+					flag	= True
 				except Exception as e:
 					msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
 					print(msg)
@@ -60,8 +66,9 @@ def telnet(ip="",port = "",address=''):
 				finally:
 					pass
 			#程序请求超过设定时间内仍然没有相应默认认为该端口不通
-			msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
-			print(msg)
+			if flag == False:
+				msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
+				print(msg)
 
 #用户只扫描单个目标时
 	else:
@@ -74,9 +81,11 @@ def telnet(ip="",port = "",address=''):
 				msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
 				print(msg)
 				pass
+				flag    = True
 			#程序请求超过设定时间内仍然没有相应默认认为该端口不通
-			msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
-			print(msg)
+			if flag == False:
+				msg     = "[-] {ip}:{port} close".format(ip=ip,port=port)
+				print(msg)
 
 
 if __name__=='__main__':
