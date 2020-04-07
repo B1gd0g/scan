@@ -258,6 +258,7 @@ class URLDetect(threading.Thread):
                 title=title.replace("\r","")
                 title=title.replace("\t","")
                 title=title.replace(" ",'')
+                #title=title.decode('utf-8')
                 #if isVisible(title)==True:
                 if status_code == 200:
                         count = count  + 1
